@@ -1,0 +1,121 @@
+.home-container {
+  width: 100%;
+  min-height: 100vh;
+  background: #f6f6f6;
+  overflow-x: hidden;
+}
+
+.home-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 88px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  background: transparent;
+  color: #ffffff;
+  
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.home-header:hover {
+  background: #ffffff;
+  color: #000000;
+  
+}
+.home-header.scrolled {
+  background: #ffffff;
+  color: #000000;
+  height: 88px; 
+}
+.home-header .header-icon {
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s;
+}
+
+.home-header:hover .header-icon,
+.home-header.scrolled .header-icon {
+  filter: none; 
+}
+.logo-box img, 
+.header-icon {
+  filter: brightness(0) invert(1);
+  transition: filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: filter; 
+}
+.home-header:hover .logo-box img,
+.home-header.scrolled .logo-box img,
+.home-header:hover .header-icon,
+.home-header.scrolled .header-icon {
+  filter: brightness(1) invert(0);
+}
+
+
+.hero-section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.header-left, 
+.header-right {
+  flex: 1; 
+  display: flex;
+  align-items: center;
+}
+.header-right {
+  justify-content: flex-end; 
+}
+.header-center {
+  flex: 0 0 auto; 
+  display: flex;
+  justify-content: center;
+}
+.header-left {
+  display: flex;
+  align-items: center; 
+  gap: 8px; 
+  cursor: pointer;
+}
+.header-left img {
+  display: block; 
+  width: 20px;
+  height: auto;
+}
+
+
+.logo-box img {
+  display: block;
+  height: auto;
+  width: 226px;
+}
+.header-icon {
+  width: 24px; 
+  height: 24px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.header-icon:hover {
+  opacity: 0.5; 
+}
+.header-left {
+  gap: 12px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+.header-right {
+  gap: 25px; 
+}
+.hero-section {
+  width: 100%;
+  height: calc(100vh - 88px); 
+  overflow: hidden;
+  
+}
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
