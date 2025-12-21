@@ -1,0 +1,11 @@
+// src/constants/footerConfig.js
+export const FOOTER_LINKS = [
+  {
+    title: '公司',
+    items: ['关于我们', '平衡', '道德准则', '我们的故事', '合法性', '隐私政策', '公司信息']
+  },
+  {
+    title: '有什么可以帮到您？',
+    items: ['联系我们', '我的订单', '常见问题解答', '订阅电子邮件', '客服']
+  }
+];

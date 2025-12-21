@@ -1,8 +1,22 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './views/Home'
-function App() {
+import ProductList from './views/ProductList'
 
+
+
+function App() {
   return (
-    <Home />
+    <Router>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/products' element={<ProductList />} />
+      </Routes>
+
+      <Footer />
+    </Router>
   )
 }
 

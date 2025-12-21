@@ -1,0 +1,164 @@
+/* index.css - 总裁专属定制版 */
+
+/* 1. 基础容器：黑底白字，增加呼吸感 */
+.home-footer {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 80px 40px; /* 增加上下内边距，显得更大气 */
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.footer-container {
+  max-width: 1300px; /* 稍微加宽，适配大屏幕 */
+  margin: 0 auto;
+}
+
+/* 2. 顶部免责声明：彻底居中 */
+.footer-top-notice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* 水平居中 */
+  text-align: center;     /* 文字对齐居中 */
+  margin-bottom: 60px;    /* 距离分割线的间距 */
+}
+
+.footer-top-notice h2 {
+  font-size: 1.4rem;
+  letter-spacing: 4px;    /* 字母间距加宽，更有品牌质感 */
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.notice-texts {
+  max-width: 850px;       /* 限制宽度，防止文字排成一长行 */
+  font-size: 0.85rem;
+  line-height: 2;         /* 增加行高，提升阅读舒适度 */
+  color: #888;            /* 使用深灰色，降低视觉权重，突出重点 */
+}
+
+.en-notice {
+  margin-top: 25px;
+  opacity: 0.8;
+  font-family: "serif";   /* 英文声明使用衬线体，更有格调 */
+}
+
+/* 3. 分割线 */
+.footer-sep {
+  border: none;
+  border-top: 1px solid #222; /* 极细暗色线条 */
+  margin-bottom: 60px;
+}
+
+/* 4. 中间内容区：两端对齐布局 */
+.footer-mid-content {
+  display: flex;
+  justify-content: space-between; /* 关键：让导航和订阅区分布在左右两端 */
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-nav-groups {
+  display: flex;
+  gap: 100px; /* 导航列之间的间距 */
+}
+
+.footer-col h3 {
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col li {
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.footer-col li:hover {
+  color: #ffffff;
+  transform: translateX(5px); /* 微小的互动感 */
+}
+
+/* 5. 订阅区域：强化视觉线条 */
+.footer-subscription {
+  min-width: 350px;
+}
+
+.sub-input-wrap {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #444; /* 初始线条颜色较暗 */
+  padding-bottom: 8px;
+  transition: border-color 0.3s;
+}
+
+.sub-input-wrap:focus-within {
+  border-color: #ffffff; /* 输入时线条变亮 */
+}
+
+.email-input {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  padding: 5px 0;
+  width: 80%;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.submit-btn {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: opacity 0.3s;
+}
+
+.submit-btn:hover {
+  opacity: 0.6;
+}
+
+/* 6. 底部 Logo 区域 */
+.footer-brand-section {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.footer-big-logo {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  opacity: 0.9;
+  /* 如果 Logo 黑色看不见，可以解开下面这行的注释 */
+  /* filter: invert(1); */ 
+}
+
+/* 7. 响应式：移动端适配 */
+@media (max-width: 768px) {
+  .home-footer {
+    padding: 60px 20px;
+  }
+  
+  .footer-nav-groups {
+    gap: 50px;
+    width: 100%;
+  }
+  
+  .footer-subscription {
+    width: 100%;
+    margin-top: 20px;
+  }
+}

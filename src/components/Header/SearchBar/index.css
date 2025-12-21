@@ -1,0 +1,43 @@
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.search-input::placeholder {
+  color: #000000c3;        /* 这里改成你想要的颜色，比如浅灰色 */
+  opacity: 1;         /* Firefox 默认有透明度，设为 1 保证颜色准确 */
+  font-size: 12px;    /* 也可以顺便调整大小 */
+  letter-spacing: 1px;
+}
+
+.search-input {
+  width: 0;
+  opacity: 0;
+  border: none;
+  border-bottom: 1px solid #000; 
+  outline: none;
+  color: #000;
+  background: transparent;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  padding: 0;
+}
+
+
+.search-container.active .search-input {
+  width: 168px; 
+  opacity: 1;
+  padding: 5px 10px;
+  margin-right: 10px; /* 图标与输入框的间距 */
+  
+}
+
+/* 鼠标悬停在图标上的反馈 */
+.header-icon {
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+.header-icon:hover {
+  opacity: 0.6;
+}
