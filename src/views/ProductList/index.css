@@ -1,11 +1,26 @@
+/* --- 1. 页面容器与 Hero 区域 --- */
 .product-views {
   width: 100%;
   min-height: 100vh;
-  padding-top: 0; /* 改为 0，我们靠 Hero 内部逻辑撑开 */
+  padding-top: 0; 
 }
+
+.product-hero {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.product-hero img {
+  width: 100%;
+  height: auto; 
+  display: block;
+}
+
+/* --- 2. 文字区域 --- */
 .Women-text {
   width: 100%;
-  padding: 80px 0 40px 0; /* 这里增加 top padding，手动拉开和图片的距离 */
+  padding: 80px 0 40px 0; 
   background: #fff;
   display: flex;
   justify-content: center;
@@ -14,9 +29,10 @@
 .text-women {
   display: flex;
   flex-direction: column;
-  align-items: center; /* 彻底居中 */
+  align-items: center; 
   text-align: center;
 }
+
 .text-women h2 {
   font-size: 2rem;
   font-weight: 500;
@@ -32,82 +48,172 @@
   color: #666;
   letter-spacing: 2px;
 }
-.brand-logo {
-  display: flex;
-  
-  
-  margin-top: -20px;
-}
-.brand-logo img {
-  width: 200px;        
-  height: auto;
-  object-fit: contain;
-}
 
-
-
-.product-hero {
-  position: relative;
-  width: 100%;
-  z-index: 1;
-}
-.product-hero img {
-  width: 100%;
-  height: auto; 
-  display: block;
-}
+/* --- 3. 商品网格布局 --- */
 .product-container {
   max-width: 1880px;
   padding: 0 20px;
   margin: 0 auto;
   background-color: rgb(255, 255, 255);
 }
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 40px;
-  padding: 0 0;
+  padding-bottom: 100px; /* 底部留点白，别太贴底 */
 }
+
+/* --- 4. 商品卡片核心样式 --- */
 .product-card {
   background: #f0efef;
   display: flex;
   flex-direction: column;
+  position: relative; /* 关键：子元素定位基准 */
+  overflow: hidden;   /* 关键！防止尺码层超出圆角边界 */
 }
 
-.product-card img {
+/* 大图样式 (黄金比例) */
+.product-card .main-img {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   display: block;
 }
-.info-box {
-  position: relative;
-  padding: 15px 15px;
-}
-.info-box h3 {
-  font-size: 16px;
-  margin: 0;
-  margin-bottom: 12px;
-  padding-right: 10px; 
+
+/* --- ⭐ 5. 补充遗漏：尺码选择遮罩层 ⭐ --- */
+.size-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* 这里的 80px 是预估底部高度，你可以根据实际情况微调 */
+  height: calc(100% - 80px); 
+  background: rgba(255, 255, 255, 0.9); /* 磨砂白底 */
+  backdrop-filter: blur(5px);            /* 模糊特效 */
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.2s ease-out;       /* 淡入动画 */
 }
 
+.size-overlay p {
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #111;
+  text-transform: uppercase;
+}
+
+.size-options {
+  display: flex;
+  gap: 10px;
+}
+
+.size-btn {
+  width: 45px;
+  height: 45px;
+  border: 1px solid #ccc; /* 灰色边框 */
+  background: white;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.size-btn:hover {
+  background: #000;      /* 悬停变黑 */
+  color: #fff;
+  border-color: #000;
+}
+
+/* 关闭遮罩 (透明层) */
+.close-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  cursor: default;
+}
+
+/* --- 6. 底部信息栏 (你刚才调整过的) --- */
+.card-bottom {
+  display: flex;      
+  background: #e0dfdc; /* 你改的深灰色 */   
+  align-items: center;  
+  padding: 10px 15px;   
+  gap: 37px;           
+  flex-grow: 1;        /* 填满剩余高度 */
+}
+
+.brand-icon-wrapper {
+  flex-shrink: 0; 
+  width: auto;              
+  height: 60px;        
+  display: flex;
+  align-items: center;  
+}
+
+.small-brand-logo {
+  width: auto;
+  height: 100%;        
+  object-fit: contain;  
+  max-width: 80px;
+}
+
+.info-box {
+  position: relative;
+  flex-grow: 1;
+  padding: 0;
+}
+
+.info-box h3 {
+  font-size: 16px;
+  margin: 0 0 12px 0; /* 修正了这里的 margin 写法 */
+  padding-right: 10px; 
+  color: #333;
+}
+
+.info-box p {
+  margin: 0;
+  font-weight: 600;
+  color: #333;
+}
+
+/* --- 7. 爱心图标 (交互核心) --- */
 .favorite-icon {
   position: absolute; 
-  right: 20px;           
-  top: 32px;         
+  right: 10px;           
+  top: 14px;         
   width: 30px !important; 
   height: 30px !important;
   cursor: pointer;
   opacity: 0.6;
   transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 5; /* 确保它能被点到 */
 }
+
 .favorite-icon:active {
   transform: scale(0.8);
 }
 
 .favorite-icon.active {
-  /* 选中的爱心可以稍微亮一点，或者加个小动画 */
+  opacity: 1; /* 选中时完全不透明 */
   animation: heartBeat 0.3s ease-in-out;
+}
+
+/* 动画定义 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes heartBeat {
@@ -115,4 +221,3 @@
   50% { transform: scale(1.3); }
   100% { transform: scale(1); }
 }
-

@@ -1,68 +1,46 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import CloseBtn from '../../../assets/header-close-btn.svg'
 import './index.css'
 import { MENU_DATA } from '../../../constants/menuConfig';
-import { Link } from 'react-router-dom';
-
-
-
-
 
 const Menu = ({ onClose }) => {
-  const [activeBrand, setActiveBrand] = useState(Object.keys(MENU_DATA)[0]);
-
-
   return (
     <div className="menu-root">
       <div className="menu-drawer">
-        {/* Header 部分 */}
+        
+        {/* Header: 关闭按钮 */}
         <div className="menu-header">
-          <div className="menu-close" onClick={onClose}><img src={CloseBtn} alt="close" /></div>
+          <div className="menu-close" onClick={onClose}>
+            <img src={CloseBtn} alt="close" />
+          </div>
           <span className="menu-close-text">Close</span>
         </div>
 
-        <div className="menu-content">
-          {/* 左侧：品牌列表 */}
-          <div className="menu-brands">
-            <ul className="menu-list">
-              {Object.keys(MENU_DATA).map((brand) => (
-                <li
-                  key={brand}
-                  className={activeBrand === brand ? 'active' : ''}
-                  onMouseEnter={() => setActiveBrand(brand)}
+        {/* Content: 单列垂直菜单 */}
+        <div className="menu-content-single">
+          <ul className="menu-list-single">
+            {MENU_DATA.map((item, index) => (
+              // style={{ '--delay': index }} 是为了让菜单一项一项弹出来
+              <li key={item.category || index} style={{ '--delay': index }}>
+                <Link 
+                  to={item.path}
+                  className="menu-link-large"
+                  onClick={onClose}
                 >
-                  <span className="menu-text">{brand}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* 右侧：二级菜单（动态渲染） */}
-          <div className="menu-sub-container">
-            <SubMenuList activeBrand={activeBrand} onClose={onClose} />
-          </div>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
+
       </div>
+      
+      {/* 遮罩层 */}
       <div className='menu-overlay' onClick={onClose} />
     </div>
   )
 }
-
-const SubMenuList = ({ activeBrand, onClose }) => (
-  <ul className='menu-sub-list' key={activeBrand}>
-    {MENU_DATA[activeBrand].map((item, index) => (
-      <li key={item} style={{ '--delay':index }}>
-        <Link
-          to='/products'
-          onClick={onClose}
-          className='menu-sub-link'
-        >
-        {item}
-        </Link>
-        
-      </li>
-    ))}
-  </ul>
-)
 
 export default Menu

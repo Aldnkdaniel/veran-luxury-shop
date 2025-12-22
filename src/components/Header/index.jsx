@@ -3,12 +3,18 @@ import Logo from '../../assets/header-logo.svg'
 import MenuIcon from '../../assets/menu-svgrepo-com.svg'
 import UserIcon from '../../assets/user-circle.svg'
 import CartIcon from '../../assets/shopping-cart-simple.svg'
+import HomeBtn from '../../assets/home.svg'
 import Menu from './Menu'
 import SearchBar from './SearchBar'
 import './index.css'
 import { useHeaderScroll } from '../../hooks/useHeaderScroll'
+import { Link } from 'react-router-dom'
 
-const Header = () => {
+
+
+
+
+const Header = ( { cartCount, onOpenCart } ) => {
   const isScrolled = useHeaderScroll(980) // 超过980px变白底
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -33,8 +39,28 @@ const Header = () => {
         {/* 右侧：搜索/用户/购物车 */}
         <div className="header-right">
           <SearchBar />
+
+          <Link to="/" className="action-item home-icon-link header-icon">
+            <img 
+              src={HomeBtn} 
+              alt="Home" 
+            />
+          </Link>
+          
           <img src={UserIcon} alt="user" className="header-icon" />
-          <img src={CartIcon} alt="cart" className="header-icon" />
+          
+          {/* 购物车区域：点击执行 onOpenCart */}
+          <div className="header-cart-wrapper" onClick={onOpenCart}>
+            <img src={CartIcon} alt="cart" className="header-icon" />
+            
+            {/* 小红点：只有数量 > 0 才显示 */}
+            {cartCount > 0 && (
+              <span className="cart-badge">
+                {cartCount}
+              </span>
+            )}
+          </div>
+
         </div>
       </header>
 
