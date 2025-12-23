@@ -18,7 +18,7 @@
 }
 
 /* --- 2. 文字区域 --- */
-.Women-text {
+.Class-text {
   width: 100%;
   padding: 80px 0 40px 0; 
   background: #fff;
@@ -26,14 +26,14 @@
   justify-content: center;
 }
 
-.text-women {
+.text-class {
   display: flex;
   flex-direction: column;
   align-items: center; 
   text-align: center;
 }
 
-.text-women h2 {
+.text-class h2 {
   font-size: 2rem;
   font-weight: 500;
   letter-spacing: 4px; 
@@ -41,13 +41,15 @@
   color: #111;
 }
 
-.text-women h4 {
+.text-class h4 {
   font-size: 1rem;
   font-weight: 300;
   text-transform: uppercase; 
   color: #666;
   letter-spacing: 2px;
 }
+
+
 
 /* --- 3. 商品网格布局 --- */
 .product-container {
@@ -63,6 +65,8 @@
   gap: 40px;
   padding-bottom: 100px; /* 底部留点白，别太贴底 */
 }
+
+
 
 /* --- 4. 商品卡片核心样式 --- */
 .product-card {
@@ -131,6 +135,56 @@
   background: #000;      /* 悬停变黑 */
   color: #fff;
   border-color: #000;
+}
+/* --- 8. 数量选择器自定义样式 --- */
+.quantity-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 52px;
+}
+
+.qty-label {
+  font-size: 11px !important; /* 比 SELECT SIZE 稍微小一点，形成层级 */
+  letter-spacing: 2px;
+  color: #666;
+  margin-bottom: 12px !important;
+}
+
+.stepper-box {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* 按钮和数字之间的呼吸感 */
+}
+
+.step-btn {
+  background: none;
+  border: 1px solid #ddd;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%; /* 圆形按钮更显精致 */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.step-btn:hover {
+  border-color: #000;
+  background-color: #000;
+  color: #fff;
+}
+
+.qty-value {
+  font-size: 16px;
+  font-weight: 500;
+  min-width: 20px;
+  text-align: center;
+  color: #111;
 }
 
 /* 关闭遮罩 (透明层) */

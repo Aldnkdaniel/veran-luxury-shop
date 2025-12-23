@@ -1,43 +1,55 @@
+/* 搜索组件的总容器 */
 .search-container {
   display: flex;
   align-items: center;
   position: relative;
-}
-.search-input::placeholder {
-  color: #000000c3;        /* 这里改成你想要的颜色，比如浅灰色 */
-  opacity: 1;         /* Firefox 默认有透明度，设为 1 保证颜色准确 */
-  font-size: 12px;    /* 也可以顺便调整大小 */
-  letter-spacing: 1px;
+  height: 100%;
 }
 
+/* 1. 输入框的初始状态：完全收起 */
 .search-input {
-  width: 0;
-  opacity: 0;
+  width: 0;           /* 宽度为0 */
+  opacity: 0;         /* 透明度为0 */
+  padding: 0;         /* 没展开时不要内边距，防止撑开空间 */
   border: none;
-  border-bottom: 1px solid #000; 
+  border-bottom: 1px solid #000; /* 只留底部黑线，高级感 */
   outline: none;
-  color: #000;
   background: transparent;
   font-size: 13px;
   letter-spacing: 1px;
-  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  padding: 0;
-}
-
-
-.search-container.active .search-input {
-  width: 168px; 
-  opacity: 1;
-  padding: 5px 10px;
-  margin-right: 10px; /* 图标与输入框的间距 */
+  color: #000;
   
+  /* 核心：过渡动画。400ms(0.4秒)展开，曲线平滑 */
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  
+  pointer-events: none; /* 没展开时，鼠标点不到它，防止误触 */
 }
 
-/* 鼠标悬停在图标上的反馈 */
-.header-icon {
-  cursor: pointer;
-  transition: opacity 0.3s;
+/* 2. 当容器有 .active 类时（即 searchOpen 为 true），输入框的样式 */
+.search-container.active .search-input {
+  width: 168px;        /* 展开后的长度 */
+  opacity: 1;          /* 变为可见 */
+  padding: 5px 10px;   /* 展开后加上内边距 */
+  margin-right: 10px;  /* 和右边图标保持点距离 */
+  pointer-events: auto; /* 展开后可以正常点击输入 */
 }
+
+/* 3. 搜索框提示词（Placeholder）样式 */
+.search-input::placeholder {
+  color: #000000c3;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+/* 4. 搜索图标样式 */
+.header-icon {
+  width: 20px;         /* 根据你的图标大小微调 */
+  height: 20px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+/* 鼠标悬停在图标上，稍微变淡一点，给用户点击反馈 */
 .header-icon:hover {
   opacity: 0.6;
 }

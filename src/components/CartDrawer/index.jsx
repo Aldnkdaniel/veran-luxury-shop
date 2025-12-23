@@ -23,6 +23,7 @@ const CartDrawer = ({ isOpen, onClose, cartItems, onRemoveItem }) => {
         ...product,
         size: cartItem.size,
         // 生成唯一身份ID，防止 React 报 key 错误
+        quantity: cartItem.quantity || 1,
         uniqueKey: `${cartItem.id}-${cartItem.size}-${index}` 
       };
     }).filter(item => item !== null); // 过滤掉无效的商品
@@ -31,8 +32,8 @@ const CartDrawer = ({ isOpen, onClose, cartItems, onRemoveItem }) => {
   // --- 定义完 cartDetails 之后，下面才能用它 ---
 
   // 计算总价
-  const totalPrice = cartDetails.reduce((sum, item) => sum + item.price, 0);
-
+  const totalPrice = cartDetails.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const totalQty = cartDetails.reduce((sum, item) => sum + item.quantity, 0);
   return (
     <>
       {/* 遮罩层 */}
@@ -59,6 +60,9 @@ const CartDrawer = ({ isOpen, onClose, cartItems, onRemoveItem }) => {
                 <div className="item-info">
                   <h4>{item.name}</h4>
                   <p className="item-meta">{item.brand} | Size: {item.size}</p>
+                  {item.quantity > 1 && (
+                      <span className="item-meta">Quantity : {item.quantity}</span>
+                    )}
                   <p className="item-price">￥{item.price.toLocaleString()}</p>
                   <button className="remove-btn" onClick={() => onRemoveItem(index)}>REMOVE</button>
                 </div>

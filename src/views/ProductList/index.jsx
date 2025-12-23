@@ -1,7 +1,7 @@
 import { PRODUCTS } from '../../constants/Product'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './index.css'
-import { useParams } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 import ProductHero from '../../assets/xnr-product-hero.webp'
 import HeartEmpty from '../../assets/add-cart1.svg'
 import HeartFilled from '../../assets/add-cart2.svg'
@@ -12,7 +12,6 @@ import BrandGucciLogo from '../../assets/gucci-svg-logo.svg'
 import BrandPradaLogo from '../../assets/prada-svg-logo.svg'
 import BrandYslLogo from '../../assets/ysl-svg-logo.svg'
 import BrandMonclerLogo from '../../assets/moncler-svg-logo.svg'
-
 
 
 const BRAND_LOGOS = {
@@ -28,36 +27,68 @@ const BRAND_LOGOS = {
 
 
 
-
+const SIZE_CONFIG = {
+  women: ['XS', 'S', 'M', 'L'],
+  men: ['M', 'L', 'XL', 'XXL'],
+  bags: ['O/S'], 
+  life: ['均码']
+};
 
 
 const ProductList = ({ cartItems, onAddToCart, onRemoveFromCart }) => {
-  const { type } = useParams();
-  const displayProducts = PRODUCTS.filter(item => item.category === type);
+  const { type, brandName } = useParams();
+
+  const location = useLocation()
+
+  const queryParams = new URLSearchParams(location.search);
+  const q = queryParams.get('q');
+  
   const [activeProductId, setActiveProductId] = useState(null);
   
-  
-  const SIZES = ['XS', 'S', 'M', 'L', 'XL'];
+  const [quantity, setQuantity] = useState(1) 
+
+  const displayProducts = PRODUCTS.filter(item => {
+    if (q) {
+      const target = q.toLowerCase()
+      return (
+        item.name.toLowerCase().includes(target) ||
+        item.brand.toLowerCase().includes(target)
+      )
+    }
+    if (brandName && brandName !== 'search') {
+      return item.brand.toLowerCase() === brandName.toLowerCase();
+    }
+    if (type) {
+      return item.category === type;
+    }
+    return true;
+  })
+
   const categoryTitles = {
     women: "女士",
     men: "男士",
-    kids: "童装",
-    accessories: "配饰"
+    bags: "手袋",
+    life: "生活艺术"
   };
   const handleHeartClick = (id) => {
     const isAlreadyAdded = cartItems.some(item => item.id === id);
     if (isAlreadyAdded) {
-      console.log("Already added");
       onRemoveFromCart(id)
     } else {
       setActiveProductId(id);
+      setQuantity(1);
     }
   }
   const handleSizeSelect = (product, size) => {
-    onAddToCart({ ...product, size: size });
+    onAddToCart({ ...product, size: size, quantity: quantity });
     setActiveProductId(null);
-    
   }
+  const updateQty = (val) => {
+    setQuantity(prev => Math.max(1, prev + val))
+  }
+  useEffect(() => {
+    setActiveProductId(null);
+  }, [type, brandName])
 
   return (
     <>
@@ -65,10 +96,10 @@ const ProductList = ({ cartItems, onAddToCart, onRemoveFromCart }) => {
         <section className='product-hero'>
           <img src={ProductHero} alt="xnr-product-hero" />
         </section>
-        <section className='Women-text'>
-          <div className='text-women'>
-            <h2>{categoryTitles[type] || "系列"}</h2>
-            <h4>{type?.toUpperCase()}</h4>
+        <section className='Class-text'>
+          <div className='text-class'>
+            <h2>{brandName ? brandName.toUpperCase() : (categoryTitles[type] || "全系列")}-系列</h2>
+            <h4>{(brandName || type || "All")?.toUpperCase()}</h4>
           </div>
         
         </section>
@@ -79,6 +110,7 @@ const ProductList = ({ cartItems, onAddToCart, onRemoveFromCart }) => {
             const isSizing = activeProductId === item.id
             const isAdded = cartItems.some(cartItem => cartItem.id === item.id)
             const logoSrc = BRAND_LOGOS[item.brand];
+            const currentSizes = SIZE_CONFIG[item.category] || SIZE_CONFIG.others;
             
             return (
 
@@ -86,9 +118,18 @@ const ProductList = ({ cartItems, onAddToCart, onRemoveFromCart }) => {
                 <img src={item.image || null} alt={item.name} className='main-img' />
                 {isSizing && (
                   <div className="size-overlay">
-                    <p>SELECT SIZE</p>
+                    
+                    <div className="quantity-section">
+                      <p className="qty-label">QUANTITY</p>
+                      <div className="stepper-box">
+                        <button className="step-btn" onClick={() => updateQty(-1)}>-</button>
+                        <span className="qty-value">{quantity}</span>
+                        <button className="step-btn" onClick={() => updateQty(+1)}>+</button>
+                      </div>
+                    </div>
+                    <p>SELECT</p>
                     <div className="size-options">
-                      {SIZES.map(size => (
+                      {currentSizes.map(size => (
                         <button 
                           key={size} 
                           className="size-btn"
@@ -98,7 +139,6 @@ const ProductList = ({ cartItems, onAddToCart, onRemoveFromCart }) => {
                         </button>
                       ))}
                     </div>
-                    {/* 点击空白处关闭 */}
                     <div className="close-mask" onClick={() => setActiveProductId(null)}></div>
                   </div>
                 )}
@@ -126,7 +166,7 @@ const ProductList = ({ cartItems, onAddToCart, onRemoveFromCart }) => {
           })}
           
           {displayProducts.length === 0 && (
-            <div className="empty-state">此系列即将上线，敬请期待。</div>
+            <div className="empty-state">此系列正在筹备中，敬请期待。</div>
           )}
 
         </div>

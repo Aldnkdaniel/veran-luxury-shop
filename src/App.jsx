@@ -51,6 +51,14 @@ function App() {
            />
           }
         />
+        <Route path='/brand/:brandName' element={
+          <ProductList
+            cartItems={cartItems}
+            onAddToCart={handleAddToCart}
+            onRemoveFromCart={handleRemoveById}
+          />
+        } />
+
       </Routes>
 
       <CartDrawer 

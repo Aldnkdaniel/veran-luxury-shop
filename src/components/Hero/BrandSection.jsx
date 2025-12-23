@@ -1,4 +1,4 @@
-const BrandSection = ({ brand }) => (
+const BrandSection = ({ brand, onBrandClick }) => (
   <section className="brand-full-wrapper">
     {/* 文字区：占据独立的一行，但是全宽背景 */}
     <div className="brand-text-block">
@@ -14,7 +14,12 @@ const BrandSection = ({ brand }) => (
         alt={brand.name}
         loading="lazy"
       />
-      <button className="brand-action-btn">{brand.btnText}</button>
+      <button
+        className="brand-action-btn"
+        onClick={onBrandClick}
+      >
+        {brand.btnText}
+      </button>
     </div>
   </section>
 )

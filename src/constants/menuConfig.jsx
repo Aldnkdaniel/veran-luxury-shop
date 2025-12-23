@@ -12,13 +12,13 @@ export const MENU_DATA = [
     category: "men"
   },
   {
-    label: "KIDS' COLLECTION",
-    path: "/category/kids",
-    category: "kids"
+    label: "HANDBAGS",          
+    path: "/category/bags",
+    category: "bags"
   },
   {
-    label: "ACCESSORIES",
-    path: "/category/accessories",
-    category: "accessories"
+    label: "ART DE VIVRE",     
+    path: "/category/life",    
+    category: "life"
   }
 ];
