@@ -11,7 +11,7 @@ const FormField = ({ label, type, placeholder, value, onChange, error }) => {
   return (
     <div className={`form-field-container ${error ? 'has-error' : ''}`}>
       {label && <label className="field-label">{label}</label>}
-      
+
       <div className="input-wrapper">
         <input
           type={type}
@@ -20,10 +20,10 @@ const FormField = ({ label, type, placeholder, value, onChange, error }) => {
           value={value}
           onChange={onChange}
         />
-        {/* 这里预留图标位置，或者装饰线 */}
+        { }
       </div>
 
-      {/* 错误提示：通过固定高度防止页面布局抖动 */}
+      { }
       <div className="field-error-box">
         {error && <span className="field-error-msg">{error}</span>}
       </div>

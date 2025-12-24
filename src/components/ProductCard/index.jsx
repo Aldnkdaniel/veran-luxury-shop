@@ -2,18 +2,18 @@ import React from 'react';
 import HeartEmpty from '../../assets/add-cart1.svg';
 import HeartFilled from '../../assets/add-cart2.svg';
 import SizeOverlay from './SizeOverlay';
-import './index.css'; // ✅ 确保这一行存在，样式才不会丢失
+import './index.css';
 
-const ProductCard = ({ 
-  item, isAdded, isSizing, logoSrc, currentSizes, 
-  onHeartClick, onSizeSelect, onCloseOverlay, quantity, updateQty 
+const ProductCard = ({
+  item, isAdded, isSizing, logoSrc, currentSizes,
+  onHeartClick, onSizeSelect, onCloseOverlay, quantity, updateQty
 }) => {
   return (
     <section className="product-card">
       <img src={item.image} alt={item.name} className='main-img' loading="lazy" />
-      
+
       {isSizing && (
-        <SizeOverlay 
+        <SizeOverlay
           sizes={currentSizes}
           quantity={quantity}
           onUpdateQty={updateQty}
@@ -26,10 +26,10 @@ const ProductCard = ({
         <div className="brand-icon-wrapper">
           {logoSrc && <img src={logoSrc} alt="brand" className="small-brand-logo" loading="lazy" />}
         </div>
-        <div className="info-box">               
+        <div className="info-box">
           <h3>{item.name}</h3>
           <img
-            src={(isAdded || isSizing) ? HeartFilled : HeartEmpty} 
+            src={(isAdded || isSizing) ? HeartFilled : HeartEmpty}
             className={`favorite-icon ${(isAdded || isSizing) ? 'active' : ''}`}
             onClick={() => onHeartClick(item.id)}
             alt="favorite"

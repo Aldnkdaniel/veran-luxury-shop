@@ -4,12 +4,14 @@
   overflow: hidden;
   padding: 0;
 }
+
 .brand-hero-box {
   position: relative;
   width: 100%;
   height: 85vh;
-  overflow: hidden; 
+  overflow: hidden;
 }
+
 .brand-hero-img {
   width: 100%;
   height: 100%;
@@ -18,34 +20,36 @@
   filter: grayscale(100%) brightness(0.9);
   transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .brand-text-overlay {
-  max-width: none; 
+  max-width: none;
   width: 100%;
   text-align: center;
   padding: 60px 0;
   background-color: #fff;
 }
+
 .brand-name {
   margin-bottom: 12px;
 }
 
-/* 品牌最外层容器 */
+
 .brand-full-wrapper {
-  width: 100%;                  /* 放弃 vw，使用 100% */
+  width: 100%;
   position: relative;
-  margin: 0;                    /* 清除所有负边距 */
-  left: 0;                      /* 重置定位 */
+  margin: 0;
+  left: 0;
   background-color: #fff;
 }
 
-/* 文字块：保持全宽感，但可以给内边距防止文字贴边 */
+
 .brand-text-block {
   width: 100%;
   text-align: center;
-  padding: 80px 20px 20px; 
+  padding: 80px 20px 20px;
 }
 
-/* 图片容器：关键在于这里 */
+
 .brand-hero-content {
   width: 100%;
   max-width: 100%;
@@ -55,49 +59,50 @@
 .brand-main-image {
   width: 100%;
   height: auto;
-  object-fit: cover; 
-  object-position: center 26%;   
+  object-fit: cover;
+  object-position: center 26%;
   display: block;
 }
+
 .home-main {
-  /* 回归正常流，删掉所有定位干扰 */
+
   position: relative;
   background-color: #fff;
-  margin-bottom: 0; 
+  margin-bottom: 0;
   padding-bottom: 0;
-  /* 既然不再重叠，阴影也可以根据喜好选择保留或去掉 */
+
 }
-/* 1. 图片容器：需要作为按钮的定位参考 */
+
 .brand-hero-content {
   width: 100%;
   height: 720px;
   height: clamp(520px, 70vh, 900px);
   overflow: hidden;
-  position: relative; /* 必须加这一行，让按钮相对于它定位 */
+  position: relative;
 }
 
-/* 2. 图片初始状态：黑白+暗淡 */
+
 .brand-main-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  /* 初始滤镜：灰度100% + 亮度调低 */
-  filter: grayscale(100%) brightness(0.6); 
+
+  filter: grayscale(100%) brightness(0.6);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: scale(0.97); /* 准备给缩放动画用 */
+  transform: scale(0.97);
 }
 
-/* 3. 按钮初始状态：隐藏并下沉 */
+
 .brand-action-btn {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -20%); /* 初始位置稍微偏下 */
+  transform: translate(-50%, -20%);
   opacity: 0;
   visibility: hidden;
-  
-  /* 基础样式：根据你的审美调整 */
+
+
   padding: 15px 40px;
   background: #fff;
   color: #000;
@@ -109,51 +114,52 @@
   z-index: 10;
 }
 
-/* ================== 关键交互逻辑 ================== */
 
-/* 当鼠标悬浮在容器上时 */
+
+
 .brand-hero-content:hover .brand-main-image {
-  filter: grayscale(0%) brightness(1); /* 恢复原色和亮度 */
-  transform: scale(1); /* 轻微放大，增加沉浸感 */
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1);
 }
 
 .brand-hero-content:hover .brand-action-btn {
   opacity: 1;
   visibility: visible;
-  transform: translate(-50%, -50%); /* 回到中心，实现上浮效果 */
+  transform: translate(-50%, -50%);
 }
 
-/* 按钮本身的 Hover (可选) */
+
 .brand-action-btn:hover {
   background: #000;
   color: #fff;
 }
 
-/* ====== 移动端适配：只调尺寸 (Brand List) ====== */
+
 @media screen and (max-width: 768px) {
-  
-  /* 1. 容器变矮：覆盖掉 PC 端的 clamp(520px...) */
+
+
   .brand-hero-content {
-    /* 手机上设为屏幕高度的 40% (约 300-350px)，让图片比例回归正常 */
-    height: 26vh !important; 
-    
-    /* 关键：必须解除最小高度限制，否则改不动 */
-    min-height: 0 !important; 
+
+    height: 26vh !important;
+
+
+    min-height: 0 !important;
   }
 
-  /* 2. 修正图片焦点：防止变矮后切头 */
+
   .brand-main-image {
-    /* 水平居中，垂直方向靠上 20% */
-    object-position: 50% 20% !important; 
+
+    object-position: 50% 20% !important;
   }
+
   .brand-action-btn {
-    /* 缩小内边距：从 15px 40px -> 10px 24px */
-    padding: 10px 24px !important; 
-    
-    /* 缩小字体：从 1rem -> 0.85rem */
-    font-size: 0.85rem !important; 
-    
-    /* 防止按钮太宽导致换行 */
+
+    padding: 10px 24px !important;
+
+
+    font-size: 0.85rem !important;
+
+
     white-space: nowrap !important;
   }
 }

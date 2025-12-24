@@ -2,12 +2,12 @@ import { useState, useEffect, useMemo } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard';
 import ProductHero from '../../assets/xnr-product-hero.webp';
-// 从新创建的 config.js 引入配置
-// 修正引用点
+
+
 import { PRODUCTS, BRAND_LOGOS, SIZE_CONFIG, CATEGORY_TITLES } from '../../constants/Product';
 import './index.css';
 
-// ✅ cartItems = [] 是职业级的防御性编程
+
 const ProductList = ({ cartItems = [], onAddToCart, onRemoveFromCart }) => {
   const { type, brandName } = useParams();
   const location = useLocation();
@@ -17,7 +17,7 @@ const ProductList = ({ cartItems = [], onAddToCart, onRemoveFromCart }) => {
   const displayProducts = useMemo(() => {
     const queryParams = new URLSearchParams(location.search);
     const q = queryParams.get('q')?.toLowerCase();
-    
+
     return PRODUCTS.filter(item => {
       if (q) return item.name.toLowerCase().includes(q) || item.brand.toLowerCase().includes(q);
       if (brandName && brandName !== 'search') return item.brand.toLowerCase() === brandName.toLowerCase();
@@ -43,7 +43,7 @@ const ProductList = ({ cartItems = [], onAddToCart, onRemoveFromCart }) => {
       <section className='product-hero'>
         <img src={ProductHero} alt="hero" loading="eager" />
       </section>
-      
+
       <section className='Class-text'>
         <div className='text-class'>
           <h2>{brandName ? brandName.toUpperCase() : (CATEGORY_TITLES[type] || "全系列")}-系列</h2>
@@ -53,7 +53,7 @@ const ProductList = ({ cartItems = [], onAddToCart, onRemoveFromCart }) => {
 
       <div className="product-container product-grid">
         {displayProducts.map((item) => (
-          <ProductCard 
+          <ProductCard
             key={item.id}
             item={item}
             isSizing={activeProductId === item.id}

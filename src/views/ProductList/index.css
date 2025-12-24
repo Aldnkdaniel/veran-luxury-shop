@@ -28,25 +28,25 @@
   color: rgb(154, 152, 152);
 }
 
-/* ====== 内页顶部 Hero 图片适配 ====== */
+
 @media screen and (max-width: 768px) {
 
-  /* 1. 找到父容器，防止高度塌陷 */
+
   .product-hero {
-    /* 设定一个相对高度，比如屏幕的 35% */
+
     height: 26vh !important;
     overflow: hidden;
   }
 
-  /* 2. 强制图片填满这个高度 */
+
   .product-hero img {
     width: 100% !important;
     height: 100% !important;
 
-    /* 关键：裁切多余部分，保证不拉伸 */
+
 
     object-fit: cover !important;
-    /* 焦点调整：通常内页横图对齐中间即可，如果想偏上就改成 center 30% */
+
     object-position: center center !important;
   }
 }

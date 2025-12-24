@@ -1,4 +1,3 @@
-/* 1. 核心重置：所有元素变为怪异盒模型，防止 padding 撑开宽度 */
 *,
 *::before,
 *::after {
@@ -7,43 +6,51 @@
   padding: 0;
 }
 
-/* 2. 基础环境：解决移动端和桌面端的点击、滚动问题 */
+
 html {
-  -webkit-text-size-adjust: 100%; /* 防止 iOS 横屏时字体自动放大 */
+  -webkit-text-size-adjust: 100%;
   -moz-tab-size: 4;
   tab-size: 4;
-  scroll-behavior: smooth; /* 全局平滑滚动 */
+  scroll-behavior: smooth;
 }
 
 body {
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased; /* 字体抗锯齿，文字更清晰 */
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: #fff;
   color: #111;
-  overflow-x: hidden; /* 防止误触产生的横向滚动条 */
+  overflow-x: hidden;
 }
 
-/* 3. 语义化标签重置：去掉讨厌的默认样式 */
-ul, ol {
+
+ul,
+ol {
   list-style: none;
 }
 
 a {
-  text-decoration: none; /* 去掉下划线 */
-  color: inherit;        /* 继承父级颜色 */
+  text-decoration: none;
+  color: inherit;
   cursor: pointer;
 }
 
-/* 4. 图片与媒体：响应式基础，防止图片溢出 */
-img, svg, video, canvas, audio {
+
+img,
+svg,
+video,
+canvas,
+audio {
   display: block;
   max-width: 100%;
 }
 
-/* 5. 表单与按钮：消除不同浏览器对按钮样式的“魔改” */
-button, input, select, textarea {
+
+button,
+input,
+select,
+textarea {
   font-family: inherit;
   font-size: 100%;
   border: none;
@@ -55,7 +62,7 @@ button {
   cursor: pointer;
 }
 
-/* 6. 隐藏元素的基础类 */
+
 [hidden] {
   display: none !important;
 }

@@ -1,4 +1,4 @@
-// src/constants/menuConfig.js
+
 
 export const MENU_DATA = [
   {
@@ -12,13 +12,13 @@ export const MENU_DATA = [
     category: "men"
   },
   {
-    label: "HANDBAGS",          
+    label: "HANDBAGS",
     path: "/category/bags",
     category: "bags"
   },
   {
-    label: "ART DE VIVRE",     
-    path: "/category/life",    
+    label: "ART DE VIVRE",
+    path: "/category/life",
     category: "life"
   }
 ];

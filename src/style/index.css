@@ -1,15 +1,19 @@
-/* src/style/index.css */
-
 /* =========================================
    🚑 移动端防溢出 (全局通用)
    ========================================= */
 @media screen and (max-width: 768px) {
-  html, body {
+
+  html,
+  body {
     max-width: 100% !important;
-    overflow-x: hidden !important; 
+    overflow-x: hidden !important;
   }
 
-  #root, .App, .home-main, .brand-full-wrapper, .brand-section-wrapper {
+  #root,
+  .App,
+  .home-main,
+  .brand-full-wrapper,
+  .brand-section-wrapper {
     width: 100% !important;
     max-width: 100vw !important;
     overflow-x: hidden !important;
@@ -20,22 +24,35 @@
     box-sizing: border-box !important;
   }
 }
-/* 1. 扩大覆盖范围：确保所有文本标签都强制继承 */
-html, body, button, input, textarea, span, a, p, div {
-  font-family: 'Montserrat', sans-serif !important; /* 使用 !important 确保穿透组件内部样式 */
+
+html,
+body,
+button,
+input,
+textarea,
+span,
+a,
+p,
+div {
+  font-family: 'Montserrat', sans-serif !important;
   -webkit-font-smoothing: antialiased;
 }
 
-/* 2. 针对标题的精致化处理 */
-h1, h2, h3, .login-header h2 {
+
+h1,
+h2,
+h3,
+.login-header h2 {
   font-family: 'Montserrat', sans-serif !important;
   font-weight: 700;
   letter-spacing: -0.5px;
   text-transform: uppercase;
 }
 
-/* 3. 特别优化页脚和按钮的质感 */
-footer a, footer span, .login-btn {
+
+footer a,
+footer span,
+.login-btn {
   font-family: 'Montserrat', sans-serif !important;
-  letter-spacing: 1px; /* 增加字间距，更有奢侈品页脚的呼吸感 */
+  letter-spacing: 1px;
 }

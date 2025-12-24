@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import FormField from '../../components/FormField';
-import { loginApi } from '../../api/product'; // ✅ 接入业务接口站
+import { loginApi } from '../../api/product';
 import './index.css';
 import LOGOT from '../../assets/login-logo-top.webp'
 import Check from '../../assets/shield-check-fill.svg'
@@ -14,7 +14,7 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const validate = () => {
-    
+
     let isValid = true;
     const newErrors = { email: '', password: '' };
     if (!email) { newErrors.email = '请输入电子邮箱'; isValid = false; }
@@ -25,28 +25,28 @@ const Login = () => {
     return isValid;
   };
 
-  // 🚀 核心重构：使用 async/await 处理真实请求
+
   const handleSignIn = async (e) => {
     e.preventDefault();
     if (!validate()) return;
 
     try {
       setIsLoading(true);
-      // 1. 调用接口发送数据
+
       const response = await loginApi({ email, password });
-      
-      // 2. 只有后端返回成功，才执行后续逻辑
-      // 假设后端返回的对象里包含 token
+
+
+
       const token = response.token || 'VERAN_ADMIN_TOKEN';
-      
+
       setIsSuccess(true);
       localStorage.setItem('userToken', token);
 
       setTimeout(() => {
         window.location.href = '/';
-      }, 3000); 
+      }, 3000);
     } catch (error) {
-      // 3. 处理错误：比如账号密码错误，request.js 会拦截报错
+
       console.error("认证失败:", error);
       alert(error.message || "认证失败，请检查账号密码");
     } finally {
@@ -101,13 +101,13 @@ const Login = () => {
                 }}
               />
 
-              {/* 🆕 增加禁用状态，防止总裁重复点击 */}
+              { }
               <button type="submit" className="login-btn" disabled={isLoading}>
                 {isLoading ? 'Authenticating...' : 'Sign In'}
               </button>
             </form>
 
-            
+
           </>
         )}
       </div>

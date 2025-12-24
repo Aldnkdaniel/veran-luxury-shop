@@ -1,5 +1,5 @@
 
-// src/views/ProductList/config.js
+
 import BrandChanelLogo from '../assets/chanel-svg-logo.svg'
 import BrandLouisvuittonLogo from '../assets/louisvuitton-svg-logo.svg'
 import BrandDiorLogo from '../assets/dior-svg-logo.svg'
@@ -21,7 +21,7 @@ export const BRAND_LOGOS = {
 export const SIZE_CONFIG = {
   women: ['XS', 'S', 'M', 'L'],
   men: ['M', 'L', 'XL', 'XXL'],
-  bags: ['O/S'], 
+  bags: ['O/S'],
   life: ['均码']
 };
 
@@ -392,7 +392,7 @@ export const PRODUCTS = [
 
 
 
-  // ------------男士数据----------------------------
+
   {
     id: 101,
     brand: "LOUIS VUITTON",

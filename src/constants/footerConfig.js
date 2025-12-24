@@ -1,4 +1,4 @@
-// src/constants/footerConfig.js
+
 export const FOOTER_LINKS = [
   {
     title: '公司',

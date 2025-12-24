@@ -1,59 +1,56 @@
-/* index.css - 总裁专属定制版 */
-
-/* 1. 基础容器：黑底白字，增加呼吸感 */
 .home-footer {
   background-color: #000000;
   color: #ffffff;
-  padding: 80px 40px; /* 增加上下内边距，显得更大气 */
+  padding: 80px 40px;
   font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 .footer-container {
-  max-width: 1300px; /* 稍微加宽，适配大屏幕 */
+  max-width: 1300px;
   margin: 0 auto;
 }
 
-/* 2. 顶部免责声明：彻底居中 */
+
 .footer-top-notice {
   display: flex;
   flex-direction: column;
-  align-items: center;    /* 水平居中 */
-  text-align: center;     /* 文字对齐居中 */
-  margin-bottom: 60px;    /* 距离分割线的间距 */
+  align-items: center;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
 .footer-top-notice h2 {
   font-size: 1.4rem;
-  letter-spacing: 4px;    /* 字母间距加宽，更有品牌质感 */
+  letter-spacing: 4px;
   margin-bottom: 30px;
   font-weight: 500;
 }
 
 .notice-texts {
-  max-width: 850px;       /* 限制宽度，防止文字排成一长行 */
+  max-width: 850px;
   font-size: 0.85rem;
-  line-height: 2;         /* 增加行高，提升阅读舒适度 */
-  color: #888;            /* 使用深灰色，降低视觉权重，突出重点 */
+  line-height: 2;
+  color: #888;
 }
 
 .en-notice {
   margin-top: 25px;
   opacity: 0.8;
-  font-family: "serif";   /* 英文声明使用衬线体，更有格调 */
+  font-family: "serif";
 }
 
-/* 3. 分割线 */
+
 .footer-sep {
   border: none;
-  border-top: 1px solid #222; /* 极细暗色线条 */
+  border-top: 1px solid #222;
   margin-bottom: 60px;
 }
 
-/* 4. 中间内容区：两端对齐布局 */
+
 .footer-mid-content {
   display: flex;
-  justify-content: space-between; /* 关键：让导航和订阅区分布在左右两端 */
+  justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 40px;
@@ -61,7 +58,7 @@
 
 .footer-nav-groups {
   display: flex;
-  gap: 100px; /* 导航列之间的间距 */
+  gap: 100px;
 }
 
 .footer-col h3 {
@@ -87,10 +84,10 @@
 
 .footer-col li:hover {
   color: #ffffff;
-  transform: translateX(5px); /* 微小的互动感 */
+  transform: translateX(5px);
 }
 
-/* 5. 订阅区域：强化视觉线条 */
+
 .footer-subscription {
   min-width: 350px;
 }
@@ -98,13 +95,13 @@
 .sub-input-wrap {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #444; /* 初始线条颜色较暗 */
+  border-bottom: 1px solid #444;
   padding-bottom: 8px;
   transition: border-color 0.3s;
 }
 
 .sub-input-wrap:focus-within {
-  border-color: #ffffff; /* 输入时线条变亮 */
+  border-color: #ffffff;
 }
 
 .email-input {
@@ -131,7 +128,7 @@
   opacity: 0.6;
 }
 
-/* 6. 底部 Logo 区域 */
+
 .footer-brand-section {
   margin-top: 80px;
   text-align: center;
@@ -142,75 +139,79 @@
   max-width: 1000px;
   height: auto;
   opacity: 0.9;
-  /* 如果 Logo 黑色看不见，可以解开下面这行的注释 */
-  /* filter: invert(1); */ 
+
+
 }
 
 /* =========================================
    7. 移动端深度适配 (奢侈品级)
    ========================================= */
 @media screen and (max-width: 768px) {
-  
-  /* 1. 容器减负：减少留白，增加屏效 */
+
+
   .home-footer {
-    padding: 50px 20px !important; /* 上下 50px，左右 20px */
+    padding: 50px 20px !important;
   }
 
-  /* 2. 顶部声明：文字调小，防止换行太难看 */
+
   .footer-top-notice {
     margin-bottom: 40px !important;
   }
+
   .footer-top-notice h2 {
-    font-size: 1.1rem !important; /* 标题改小 */
+    font-size: 1.1rem !important;
     margin-bottom: 20px !important;
   }
+
   .notice-texts {
-    font-size: 12px !important; /* 正文用 12px 显得精致 */
-    text-align: justify; /* 左右对齐，像报纸排版一样工整 */
+    font-size: 12px !important;
+    text-align: justify;
     line-height: 1.8 !important;
   }
 
-  /* 3. 中间布局：强制垂直排列 (列 -> 行) */
+
   .footer-mid-content {
-    flex-direction: column !important; /* 上下排布 */
+    flex-direction: column !important;
     gap: 50px !important;
   }
 
-  /* 4. 导航菜单：改为一行两列，整齐划一 */
+
   .footer-nav-groups {
     width: 100% !important;
-    display: grid !important; 
-    grid-template-columns: 1fr 1fr; /* 强制两列布局 */
-    gap: 30px 10px !important; /* 行距30，列距10 */
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 10px !important;
   }
-  
-  /* 菜单标题稍小一点 */
+
+
   .footer-col h3 {
-    font-size: 13px !important; 
+    font-size: 13px !important;
     margin-bottom: 15px !important;
   }
 
-  /* 5. 订阅区域：铺满全屏 */
+
   .footer-subscription {
     width: 100% !important;
-    min-width: 0 !important; /* ⚠️ 关键：取消 PC 端的最小宽度限制，防止撑爆手机 */
+    min-width: 0 !important;
     margin-top: 10px !important;
   }
-  
-  /* 输入框区域加高，方便手指点击 */
+
+
   .sub-input-wrap {
     padding-bottom: 10px !important;
   }
+
   .email-input {
-    font-size: 14px !important; /* 字体大一点，防止 iOS 自动放大页面 */
+    font-size: 14px !important;
   }
 
-  /* 6. 底部 Logo */
+
   .footer-brand-section {
     margin-top: 50px !important;
   }
+
   .footer-big-logo {
-    width: 80% !important; /* 不要太满，留点白 */
+    width: 80% !important;
     max-width: 300px !important;
   }
 }

@@ -5,20 +5,20 @@ import CartDrawer from '../components/CartDrawer';
 import LoginModal from '../components/LoginModal';
 
 const MainLayout = ({ children, cartProps, authProps, layoutProps }) => {
-  // layoutProps 控制是否显示头尾
+
   const { isLoginPage } = layoutProps;
 
   return (
     <div className="app-wrapper">
-      <LoginModal 
-        isOpen={authProps.isLoginModalOpen} 
-        onClose={() => authProps.setIsLoginModalOpen(false)} 
+      <LoginModal
+        isOpen={authProps.isLoginModalOpen}
+        onClose={() => authProps.setIsLoginModalOpen(false)}
       />
 
       {!isLoginPage && (
-        <Header 
-          cartCount={cartProps.cartItems.length} 
-          onOpenCart={() => cartProps.setIsCartOpen(true)} 
+        <Header
+          cartCount={cartProps.cartItems.length}
+          onOpenCart={() => cartProps.setIsCartOpen(true)}
         />
       )}
 
@@ -26,8 +26,8 @@ const MainLayout = ({ children, cartProps, authProps, layoutProps }) => {
         {children}
       </main>
 
-      <CartDrawer 
-        isOpen={cartProps.isCartOpen} 
+      <CartDrawer
+        isOpen={cartProps.isCartOpen}
         onClose={() => cartProps.setIsCartOpen(false)}
         cartItems={cartProps.cartItems}
         onRemoveItem={cartProps.onRemoveItem}

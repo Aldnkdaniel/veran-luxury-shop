@@ -8,8 +8,8 @@ const Menu = ({ onClose }) => {
   return (
     <div className="menu-root">
       <div className="menu-drawer">
-        
-        {/* Header: 关闭按钮 */}
+
+        { }
         <div className="menu-header">
           <div className="menu-close" onClick={onClose}>
             <img src={CloseBtn} alt="close" />
@@ -17,13 +17,13 @@ const Menu = ({ onClose }) => {
           <span className="menu-close-text">Close</span>
         </div>
 
-        {/* Content: 单列垂直菜单 */}
+        { }
         <div className="menu-content-single">
           <ul className="menu-list-single">
             {MENU_DATA.map((item, index) => (
-              // style={{ '--delay': index }} 是为了让菜单一项一项弹出来
+
               <li key={item.category || index} style={{ '--delay': index }}>
-                <Link 
+                <Link
                   to={item.path}
                   className="menu-link-large"
                   onClick={onClose}
@@ -36,8 +36,8 @@ const Menu = ({ onClose }) => {
         </div>
 
       </div>
-      
-      {/* 遮罩层 */}
+
+      { }
       <div className='menu-overlay' onClick={onClose} />
     </div>
   )

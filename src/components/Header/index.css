@@ -17,18 +17,18 @@
   background: transparent;
   color: #ffffff;
 
-  /* 丝滑过渡 */
+
   transition: background 0.3s ease, color 0.3s ease, opacity 0.2s ease;
 }
 
-/* 状态：菜单开启时整体隐藏，防止逻辑干扰 */
+
 .home-header.menu-is-open {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 
-/* 状态：滚动后 / 鼠标悬停 变白底 */
+
 .home-header.scrolled,
 .home-header:hover {
   background: #ffffff;
@@ -44,22 +44,22 @@
   width: 226px;
   height: auto;
 
-  /* 核心滤镜：brightness(0)变黑 -> invert(1)变白 -> contrast(10)强制收紧线条消除粗边 */
+
   filter: brightness(0) invert(1) contrast(10);
-  
-  /* 像素级对齐优化 */
+
+
   image-rendering: -webkit-optimize-contrast;
-  
-  /* 硬件加速锁死位移 */
+
+
   transform: translateZ(0);
-  
+
   transition: filter 0.3s ease;
 }
 
-/* 滚动/Hover 后：Logo 恢复黑色 */
+
 .home-header.scrolled .logo-box img,
 .home-header:hover .logo-box img {
-  /* 保持高对比度以维持线条细度，但不反转颜色 */
+
   filter: brightness(0) invert(0) contrast(10) !important;
 }
 
@@ -93,7 +93,7 @@
   gap: 25px;
 }
 
-/* 导航图标颜色同步切换 */
+
 .header-icon {
   width: 24px;
   height: 24px;
@@ -102,12 +102,12 @@
   transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
-/* 初始白色图标 */
+
 .home-header .header-icon {
   filter: brightness(0) invert(1);
 }
 
-/* 滚动/Hover 后图标变黑 */
+
 .home-header.scrolled .header-icon,
 .home-header:hover .header-icon {
   filter: brightness(0) invert(0);
@@ -117,10 +117,11 @@
   opacity: 0.5;
 }
 
-/* 菜单文字 */
+
 .menu-text2 {
   font-weight: 400;
 }
+
 .header-cart-wrapper {
   position: relative;
   cursor: pointer;
@@ -157,31 +158,31 @@
   align-items: center;
 }
 
-/* 登录后的图标稍微加强存在感 */
+
 .header-icon.logged-in {
   opacity: 1;
 }
 
-/* 在线状态小圆点 - 极简工业风 */
+
 .online-status {
   position: absolute;
   bottom: -2px;
   right: -2px;
   width: 7px;
   height: 7px;
-  background: #00ff00; /* 经典的在线绿 */
+  background: #00ff00;
   border-radius: 50%;
-  border: 1.5px solid #fff; /* 隔离位，防止与背景混淆 */
+  border: 1.5px solid #fff;
   box-shadow: 0 0 4px rgba(0, 255, 0, 0.5);
 }
 
-/* 滚动变色后，圆点的边框也要同步变色（如果有必要） */
+
 .home-header.scrolled .online-status,
 .home-header:hover .online-status {
   border-color: #ffffff;
 }
 
-/* 退出登录的提示气泡 */
+
 .user-logged-in-trigger {
   position: relative;
   display: flex;
@@ -203,24 +204,26 @@
   animation: fadeIn 0.2s ease;
 }
 
-/* 适配手机和平板（屏幕宽度小于 768px） */
+
 @media (max-width: 768px) {
   .home-header {
-    height: 60px !important;    /* 强制减小高度 */
-    padding: 0 15px !important; /* 缩减侧边距，给内容留空间 */
+    height: 60px !important;
+    padding: 0 15px !important;
   }
+
   .header-icon {
     width: 16px !important;
   }
+
   .logo-box img {
-    width: 120px !important;    /* 进一步缩小 Logo */
+    width: 120px !important;
   }
 
   .header-right {
-    gap: 6px !important;       /* 缩减图标间距 */
+    gap: 6px !important;
   }
-  
+
   .menu-text2 {
-    display: none;              /* 必须隐藏，否则会挤开右侧图标 */
+    display: none;
   }
 }

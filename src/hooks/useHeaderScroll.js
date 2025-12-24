@@ -1,4 +1,4 @@
-// src/hooks/useHeaderScroll.js
+
 import { useState, useEffect } from 'react';
 
 export const useHeaderScroll = (threshold = 980) => {

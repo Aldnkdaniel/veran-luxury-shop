@@ -1,6 +1,6 @@
 .form-field-container {
   width: 100%;
-  margin-bottom: 8px; /* 留给错误信息盒子空间 */
+  margin-bottom: 8px;
 }
 
 .field-label {
@@ -30,7 +30,7 @@
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 焦点态：模拟高级感的光晕 */
+
 .field-input:focus {
   outline: none;
   background: #ffffff;
@@ -38,7 +38,7 @@
   box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
 }
 
-/* 错误态：红色预警 */
+
 .has-error .field-input {
   border-color: #ef4444;
   background-color: #fef2f2;
@@ -48,9 +48,9 @@
   box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
 }
 
-/* 错误提示占位盒 */
+
 .field-error-box {
-  min-height: 20px; /* 关键：固定高度，报错时内容不会上下乱跳 */
+  min-height: 20px;
   padding-top: 4px;
 }
 
@@ -63,6 +63,13 @@
 }
 
 @keyframes slideIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

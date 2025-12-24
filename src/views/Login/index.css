@@ -6,9 +6,9 @@
   width: 100vw;
   height: 100vh;
   z-index: 9999;
-  background: #000046;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #000046, #1CB5E0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #000046;
+  background: -webkit-linear-gradient(to right, #1CB5E0, #000046);
+  background: linear-gradient(to right, #000046, #1CB5E0);
 
   display: flex;
   justify-content: center;
@@ -29,21 +29,23 @@
   max-width: 420px;
   transition: all 0.5s ease;
 }
+
 .login-header {
   display: flex;
   flex-direction: column;
-  align-items: center;    /* 水平居中核心 */
+  align-items: center;
   width: 100%;
   margin-bottom: 2rem;
 }
 
-/* 设置 Logo 大小及间距 */
+
 .login-logo-top {
-  width: 268px;            /* 宽度按需调整 */
+  width: 268px;
   height: auto;
-  margin-bottom: 1.2rem;  /* Logo 与下方 Welcome 的间距 */
-  display: block;         /* 消除图片底边间隙 */
+  margin-bottom: 1.2rem;
+  display: block;
 }
+
 .login-header p {
   padding-top: 20px;
 }
@@ -83,17 +85,29 @@
   height: 100%;
   background: var(--primary);
   width: 0%;
-  animation: progressFill 3s linear forwards; 
+  animation: progressFill 3s linear forwards;
 }
 
 @keyframes progressFill {
-  from { width: 0%; }
-  to { width: 100%; }
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
@@ -115,17 +129,19 @@
   filter: brightness(1.05);
   transform: translateY(-1px);
 }
+
 .footer-login {
   padding-top: 20px;
 }
+
 @media (max-width: 480px) {
   .login-card {
-    padding: 1.5rem; 
-    width: 95%; 
-    border-radius: 20px; 
+    padding: 1.5rem;
+    width: 95%;
+    border-radius: 20px;
   }
 
   .login-card h2 {
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
   }
 }

@@ -6,7 +6,7 @@
   overflow: hidden;
 }
 
-/* 顶部渐变遮罩（给 Header 用） */
+
 .hero-section::before {
   content: "";
   position: absolute;
@@ -14,16 +14,14 @@
   left: 0;
   width: 100%;
   height: 140px;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.45),
-    rgba(0, 0, 0, 0)
-  );
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0));
   z-index: 1;
   pointer-events: none;
 }
 
-/* ===== PC / 默认 ===== */
+
 .hero-image {
   width: 100%;
   height: auto;
@@ -31,20 +29,20 @@
   object-fit: cover;
   object-position: left center;
 }
-/* ====== 移动端适配 (针对 hero-image) ====== */
+
 @media screen and (max-width: 768px) {
-  
-  /* 1. 针对你真正的图片类名 .hero-image */
+
+
   .hero-image {
-    /* 核心：覆盖掉 PC 端的 calc(100vh - 88px) */
-    /* 手机上太高会导致图片被拉伸裁剪，改成 55vh (屏幕的一半多一点) */
-    height: 26vh !important; 
-    
-    /* 对齐：聚焦人物头部 (水平居中，垂直靠上 20%) */
+
+
+    height: 26vh !important;
+
+
     object-position: 50% 20% !important;
   }
-  
-  /* 2. 针对外层容器 (可选，确保容器也跟着缩小) */
+
+
   .hero-section {
     height: auto !important;
     min-height: 0 !important;
