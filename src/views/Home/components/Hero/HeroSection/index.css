@@ -5,6 +5,8 @@
   padding: 0;
   overflow: hidden;
 }
+
+/* 顶部渐变遮罩（给 Header 用） */
 .hero-section::before {
   content: "";
   position: absolute;
@@ -20,25 +22,31 @@
   z-index: 1;
   pointer-events: none;
 }
+
+/* ===== PC / 默认 ===== */
 .hero-image {
   width: 100%;
-  /* 动态计算：减去顶部 Header 的高度 */
-  height: calc(100vh - 88px); 
+  height: auto;
   display: block;
   object-fit: cover;
-  object-position: center;
+  object-position: left center;
 }
-/* 解决手机端图片比例崩坏 */
-@media (max-width: 768px) {
-  .hero-section {
-    width: 100vw;               /* 确保容器占满视口 */
-    height: 70vh;               /* 手机端图片高度占屏幕的 70% 即可，不要满屏 */
-  }
-
+/* ====== 移动端适配 (针对 hero-image) ====== */
+@media screen and (max-width: 768px) {
+  
+  /* 1. 针对你真正的图片类名 .hero-image */
   .hero-image {
-    width: 100% !important;
-    height: 100% !important;    /* 填充父容器 */
-    object-fit: cover;          /* 保证图片不拉伸 */
-    object-position: center;    /* 确保模特或主体在正中间 */
+    /* 核心：覆盖掉 PC 端的 calc(100vh - 88px) */
+    /* 手机上太高会导致图片被拉伸裁剪，改成 55vh (屏幕的一半多一点) */
+    height: 26vh !important; 
+    
+    /* 对齐：聚焦人物头部 (水平居中，垂直靠上 20%) */
+    object-position: 50% 20% !important;
+  }
+  
+  /* 2. 针对外层容器 (可选，确保容器也跟着缩小) */
+  .hero-section {
+    height: auto !important;
+    min-height: 0 !important;
   }
 }

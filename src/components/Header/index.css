@@ -209,13 +209,15 @@
     height: 60px !important;    /* 强制减小高度 */
     padding: 0 15px !important; /* 缩减侧边距，给内容留空间 */
   }
-
+  .header-icon {
+    width: 16px !important;
+  }
   .logo-box img {
     width: 120px !important;    /* 进一步缩小 Logo */
   }
 
   .header-right {
-    gap: 12px !important;       /* 缩减图标间距 */
+    gap: 6px !important;       /* 缩减图标间距 */
   }
   
   .menu-text2 {

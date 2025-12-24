@@ -192,3 +192,65 @@
   background: #ececec;
   color: #000; 
 }
+
+/* ====== 移动端购物车：整体精致化缩小 ====== */
+@media screen and (max-width: 768px) {
+  
+  /* 1. 抽屉整体变窄 */
+  .cart-drawer {
+    width: 75vw !important;       /* 只占屏幕 75% */
+    max-width: 300px !important;  /* 锁死最大宽度，很苗条 */
+  }
+
+  /* 2. 头部区域压缩 */
+  .drawer-header {
+    padding: 15px 20px !important; /* 减小内边距 */
+    min-height: 50px !important;
+  }
+  .drawer-header h2 {
+    font-size: 12px !important;    /* 标题改小 */
+  }
+  .close-btn {
+    font-size: 22px !important;    /* 关闭按钮改小 */
+  }
+
+  /* 3. 商品列表紧凑化 */
+  .drawer-items {
+    padding: 15px 20px !important;
+  }
+  .cart-item {
+    gap: 10px !important;          /* 图片和文字靠得更近 */
+    margin-bottom: 15px !important;
+    padding-bottom: 15px !important;
+  }
+
+  /* 4. 核心：图片缩小 (从 80px -> 60px) */
+  .cart-item img {
+    width: 60px !important; 
+    /* 高度会自动按比例缩放，不用管 */
+  }
+
+  /* 5. 文字信息缩小 */
+  .item-info h4 {
+    font-size: 12px !important;    /* 商品名变小 */
+    margin-bottom: 2px !important;
+  }
+  .item-meta {
+    font-size: 10px !important;    /* 尺码信息变极小，显高级 */
+  }
+  .item-price {
+    font-size: 14px !important;    /* 价格变小 */
+  }
+  .remove-btn {
+    font-size: 10px !important;
+  }
+
+  /* 6. 底部结算区缩小 */
+  .drawer-footer {
+    padding: 15px 20px !important;
+  }
+  .checkout-btn {
+    padding: 12px !important;      /* 按钮变薄 */
+    font-size: 12px !important;
+  }
+}

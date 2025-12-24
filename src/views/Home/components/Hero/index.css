@@ -128,3 +128,32 @@
   background: #000;
   color: #fff;
 }
+
+/* ====== 移动端适配：只调尺寸 (Brand List) ====== */
+@media screen and (max-width: 768px) {
+  
+  /* 1. 容器变矮：覆盖掉 PC 端的 clamp(520px...) */
+  .brand-hero-content {
+    /* 手机上设为屏幕高度的 40% (约 300-350px)，让图片比例回归正常 */
+    height: 26vh !important; 
+    
+    /* 关键：必须解除最小高度限制，否则改不动 */
+    min-height: 0 !important; 
+  }
+
+  /* 2. 修正图片焦点：防止变矮后切头 */
+  .brand-main-image {
+    /* 水平居中，垂直方向靠上 20% */
+    object-position: 50% 20% !important; 
+  }
+  .brand-action-btn {
+    /* 缩小内边距：从 15px 40px -> 10px 24px */
+    padding: 10px 24px !important; 
+    
+    /* 缩小字体：从 1rem -> 0.85rem */
+    font-size: 0.85rem !important; 
+    
+    /* 防止按钮太宽导致换行 */
+    white-space: nowrap !important;
+  }
+}
