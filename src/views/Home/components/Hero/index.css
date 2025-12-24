@@ -133,3 +133,27 @@
   background: #000;
   color: #fff;
 }
+@media (max-width: 768px) {
+  .brand-full-wrapper {
+    /* 撤销强行拉伸逻辑 */
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .brand-hero-content {
+    /* 调整移动端图片高度，防止过高或过矮 */
+    height: 400px !important; 
+    height: 60vh !important;
+  }
+
+  .brand-action-btn {
+    /* 移动端按钮不要等 hover，直接显示或者调大一点 */
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translate(-50%, -50%) !important;
+    padding: 10px 25px !important;
+  }
+}

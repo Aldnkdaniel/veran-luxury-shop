@@ -94,3 +94,14 @@
   filter: brightness(1.05);
   transform: translateY(-1px);
 }
+@media (max-width: 480px) {
+  .login-card {
+    padding: 1.5rem; /* 减少内边距 */
+    width: 95%; /* 增加卡片宽度占比 */
+    border-radius: 20px; /* 圆角稍微收敛 */
+  }
+
+  .login-card h2 {
+    font-size: 1.5rem; /* 标题字号物理缩小 */
+  }
+}
