@@ -28,3 +28,17 @@
   object-fit: cover;
   object-position: center;
 }
+/* 解决手机端图片比例崩坏 */
+@media (max-width: 768px) {
+  .hero-section {
+    width: 100vw;               /* 确保容器占满视口 */
+    height: 70vh;               /* 手机端图片高度占屏幕的 70% 即可，不要满屏 */
+  }
+
+  .hero-image {
+    width: 100% !important;
+    height: 100% !important;    /* 填充父容器 */
+    object-fit: cover;          /* 保证图片不拉伸 */
+    object-position: center;    /* 确保模特或主体在正中间 */
+  }
+}

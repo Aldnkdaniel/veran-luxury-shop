@@ -206,19 +206,19 @@
 /* 适配手机和平板（屏幕宽度小于 768px） */
 @media (max-width: 768px) {
   .home-header {
-    height: 60px; /* 手机端高度减小，留出更多视觉空间 */
-    padding: 0 20px; /* 缩减侧边距 */
+    height: 60px !important;    /* 强制减小高度 */
+    padding: 0 15px !important; /* 缩减侧边距，给内容留空间 */
   }
 
   .logo-box img {
-    width: 150px; /* Logo 物理缩小，防止占满一行 */
-  }
-
-  .menu-text2 {
-    display: none; /* 手机端隐藏“MENU”文字，只留图标，这是大厂通用做法 */
+    width: 120px !important;    /* 进一步缩小 Logo */
   }
 
   .header-right {
-    gap: 15px; /* 图标间距收紧 */
+    gap: 12px !important;       /* 缩减图标间距 */
+  }
+  
+  .menu-text2 {
+    display: none;              /* 必须隐藏，否则会挤开右侧图标 */
   }
 }
