@@ -1,6 +1,6 @@
 import './index.css'
 
-import Main from '../../components/Hero'
+import Main from './components/Hero'
 
 
 

@@ -146,3 +146,59 @@
   padding: 0 2px;
   z-index: 10;
 }
+
+/* --------------------------------------------------------------------------
+   用户态专属：在线点与悬浮提示
+   -------------------------------------------------------------------------- */
+
+.user-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* 登录后的图标稍微加强存在感 */
+.header-icon.logged-in {
+  opacity: 1;
+}
+
+/* 在线状态小圆点 - 极简工业风 */
+.online-status {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 7px;
+  height: 7px;
+  background: #00ff00; /* 经典的在线绿 */
+  border-radius: 50%;
+  border: 1.5px solid #fff; /* 隔离位，防止与背景混淆 */
+  box-shadow: 0 0 4px rgba(0, 255, 0, 0.5);
+}
+
+/* 滚动变色后，圆点的边框也要同步变色（如果有必要） */
+.home-header.scrolled .online-status,
+.home-header:hover .online-status {
+  border-color: #ffffff;
+}
+
+/* 退出登录的提示气泡 */
+.user-logged-in-trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.user-logged-in-trigger:hover::after {
+  content: "SIGN OUT";
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background: #000;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  white-space: nowrap;
+  animation: fadeIn 0.2s ease;
+}

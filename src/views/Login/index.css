@@ -1,0 +1,96 @@
+.login-container {
+  --primary: #6366f1;
+  /* 强制全屏，解决背景色侧漏 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 2.5rem;
+  border-radius: 28px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 420px;
+  transition: all 0.5s ease;
+}
+
+/* 成功反馈样式 */
+.success-feedback {
+  text-align: center;
+  padding: 10px 0;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin: 0 auto 24px;
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+}
+
+/* 3秒倒计时进度条 */
+.loading-bar-container {
+  width: 100%;
+  height: 4px;
+  background: #e2e8f0;
+  border-radius: 2px;
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.loading-bar-fill {
+  height: 100%;
+  background: var(--primary);
+  width: 0%;
+  animation: progressFill 3s linear forwards; /* 配合 3 秒跳转 */
+}
+
+@keyframes progressFill {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 按钮样式 */
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 1rem;
+}
+
+.login-btn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}

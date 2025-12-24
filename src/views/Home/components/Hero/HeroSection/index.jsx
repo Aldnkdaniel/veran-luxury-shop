@@ -1,5 +1,5 @@
 import './index.css' 
-import HeroBg from '../../../assets/hero-home.webp'
+import HeroBg from '../../../../../assets/hero-home.webp'
 
 const HeroSection = () => {
   return (

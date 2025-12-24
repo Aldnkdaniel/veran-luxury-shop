@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import CloseBtn from '../../../assets/header-close-btn.svg'
+import CloseBtn from '../../assets/header-close-btn.svg'
 import './index.css'
-import { MENU_DATA } from '../../../constants/menuConfig';
+import { MENU_DATA } from '../../constants/menuConfig';
 
 const Menu = ({ onClose }) => {
   return (

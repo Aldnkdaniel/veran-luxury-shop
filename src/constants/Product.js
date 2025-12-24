@@ -1,3 +1,54 @@
+
+// src/views/ProductList/config.js
+import BrandChanelLogo from '../assets/chanel-svg-logo.svg'
+import BrandLouisvuittonLogo from '../assets/louisvuitton-svg-logo.svg'
+import BrandDiorLogo from '../assets/dior-svg-logo.svg'
+import BrandGucciLogo from '../assets/gucci-svg-logo.svg'
+import BrandPradaLogo from '../assets/prada-svg-logo.svg'
+import BrandYslLogo from '../assets/ysl-svg-logo.svg'
+import BrandMonclerLogo from '../assets/moncler-svg-logo.svg'
+
+export const BRAND_LOGOS = {
+  'CHANEL': BrandChanelLogo,
+  'LOUIS VUITTON': BrandLouisvuittonLogo,
+  'DIOR': BrandDiorLogo,
+  'GUCCI': BrandGucciLogo,
+  'PRADA': BrandPradaLogo,
+  'YVES SAINT LAURENT': BrandYslLogo,
+  'MONCLER': BrandMonclerLogo
+};
+
+export const SIZE_CONFIG = {
+  women: ['XS', 'S', 'M', 'L'],
+  men: ['M', 'L', 'XL', 'XXL'],
+  bags: ['O/S'], 
+  life: ['均码']
+};
+
+export const CATEGORY_TITLES = {
+  women: "女士",
+  men: "男士",
+  bags: "手袋",
+  life: "生活艺术"
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import Xnrid1 from '../assets/xnrid-1.webp'
 import Xnrid2 from '../assets/xnrid-2.webp'
 import Xnrid3 from '../assets/xnrid-3.webp'

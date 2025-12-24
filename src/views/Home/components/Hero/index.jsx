@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { BRANDS } from "../../constants/brandConfig.jsx"
+import { BRANDS } from "../../../../constants/brandConfig.jsx"
 import BrandSection from './BrandSection'
-import HeroSection from '../../components/Hero/HeroSection'
+import HeroSection from "./HeroSection"
 import './index.css'
 
 
