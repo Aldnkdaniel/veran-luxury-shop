@@ -41,7 +41,7 @@ const ProductList = ({ cartItems = [], onAddToCart, onRemoveFromCart }) => {
   return (
     <div className="product-views">
       <section className='product-hero'>
-        <img src={ProductHero} alt="hero" />
+        <img src={ProductHero} alt="hero" loading="eager" />
       </section>
       
       <section className='Class-text'>

@@ -2,6 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './index.css'; // 引入你刚才拆出去的样式
+import Logo from '../../../public/web-logo.webp'
 
 const LoginModal = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
@@ -15,9 +16,11 @@ const LoginModal = ({ isOpen, onClose }) => {
         <button className="modal-close-btn" onClick={onClose}>✕</button>
         
         <div className="modal-body">
-          <div className="modal-icon">👋</div>
+          <div className="modal-icon">
+            <img src={Logo} alt="logo" className='logo-login' />
+          </div>
           <h3>欢迎来到 VERAN</h3>
-          <p>总裁，登录后即可将心仪商品加入购物车，开启您的定制之旅。</p>
+          <p>登录后即可将心仪商品加入购物车，开启您的定制之旅。</p>
           
           <div className="modal-actions">
             <button className="secondary-action" onClick={onClose}>

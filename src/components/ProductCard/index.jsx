@@ -10,7 +10,7 @@ const ProductCard = ({
 }) => {
   return (
     <section className="product-card">
-      <img src={item.image} alt={item.name} className='main-img' />
+      <img src={item.image} alt={item.name} className='main-img' loading="lazy" />
       
       {isSizing && (
         <SizeOverlay 
@@ -24,7 +24,7 @@ const ProductCard = ({
 
       <div className="card-bottom">
         <div className="brand-icon-wrapper">
-          {logoSrc && <img src={logoSrc} alt="brand" className="small-brand-logo" />}
+          {logoSrc && <img src={logoSrc} alt="brand" className="small-brand-logo" loading="lazy" />}
         </div>
         <div className="info-box">               
           <h3>{item.name}</h3>

@@ -2,16 +2,19 @@ import { useState } from 'react';
 import FormField from '../../components/FormField';
 import { loginApi } from '../../api/product'; // ✅ 接入业务接口站
 import './index.css';
+import LOGOT from '../../assets/login-logo-top.webp'
+import Check from '../../assets/shield-check-fill.svg'
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({ email: '', password: '' });
   const [isSuccess, setIsSuccess] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // 🆕 增加加载状态
+  const [isLoading, setIsLoading] = useState(false);
 
   const validate = () => {
-    // ... 保持你原本优秀的验证逻辑不变 ...
+    
     let isValid = true;
     const newErrors = { email: '', password: '' };
     if (!email) { newErrors.email = '请输入电子邮箱'; isValid = false; }
@@ -57,8 +60,8 @@ const Login = () => {
         {isSuccess ? (
           <div className="success-feedback">
             <div className="success-icon">✓</div>
-            <h2>Welcome Back</h2>
-            <p>认证成功，正在进入 VÉRAN 空间...</p>
+            <h2> Welcome to VÉRAN </h2>
+            <p>登录成功，正在进入 VÉRAN ...</p>
             <div className="loading-bar-container">
               <div className="loading-bar-fill"></div>
             </div>
@@ -66,8 +69,11 @@ const Login = () => {
         ) : (
           <>
             <div className="login-header">
+              <div className="login-logo-container">
+                <img src={LOGOT} alt='log' className='login-logo-top' />
+              </div>
               <h2>Welcome</h2>
-              <p className="subtitle">Enter your credentials to access your account</p>
+              <p className="subtitle">填写你的邮箱和密码</p>
             </div>
 
             <form onSubmit={handleSignIn} noValidate>
@@ -101,9 +107,7 @@ const Login = () => {
               </button>
             </form>
 
-            <div className="footer-login">
-              <span>Don't have an account? <a href="#">Sign Up</a></span>
-            </div>
+            
           </>
         )}
       </div>

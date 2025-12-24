@@ -1,33 +1,54 @@
 .login-container {
-  --primary: #6366f1;
-  /* 强制全屏，解决背景色侧漏 */
+  --primary: #000000;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   z-index: 9999;
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+  background: #000046;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #000046, #1CB5E0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Inter', sans-serif;
 }
 
+
 .login-card {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.723);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 2.5rem;
-  border-radius: 28px;
+  border-radius: 12px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
   width: 90%;
   max-width: 420px;
   transition: all 0.5s ease;
 }
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* 水平居中核心 */
+  width: 100%;
+  margin-bottom: 2rem;
+}
 
-/* 成功反馈样式 */
+/* 设置 Logo 大小及间距 */
+.login-logo-top {
+  width: 268px;            /* 宽度按需调整 */
+  height: auto;
+  margin-bottom: 1.2rem;  /* Logo 与下方 Welcome 的间距 */
+  display: block;         /* 消除图片底边间隙 */
+}
+.login-header p {
+  padding-top: 20px;
+}
+
+
 .success-feedback {
   text-align: center;
   padding: 10px 0;
@@ -45,10 +66,10 @@
   justify-content: center;
   font-size: 32px;
   margin: 0 auto 24px;
-  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 10px 20px rgba(206, 206, 206, 0.3);
 }
 
-/* 3秒倒计时进度条 */
+
 .loading-bar-container {
   width: 100%;
   height: 4px;
@@ -62,7 +83,7 @@
   height: 100%;
   background: var(--primary);
   width: 0%;
-  animation: progressFill 3s linear forwards; /* 配合 3 秒跳转 */
+  animation: progressFill 3s linear forwards; 
 }
 
 @keyframes progressFill {
@@ -75,7 +96,7 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* 按钮样式 */
+
 .login-btn {
   width: 100%;
   padding: 14px;
@@ -94,14 +115,17 @@
   filter: brightness(1.05);
   transform: translateY(-1px);
 }
+.footer-login {
+  padding-top: 20px;
+}
 @media (max-width: 480px) {
   .login-card {
-    padding: 1.5rem; /* 减少内边距 */
-    width: 95%; /* 增加卡片宽度占比 */
-    border-radius: 20px; /* 圆角稍微收敛 */
+    padding: 1.5rem; 
+    width: 95%; 
+    border-radius: 20px; 
   }
 
   .login-card h2 {
-    font-size: 1.5rem; /* 标题字号物理缩小 */
+    font-size: 1.5rem; 
   }
 }

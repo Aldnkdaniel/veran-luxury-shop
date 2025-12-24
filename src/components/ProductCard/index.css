@@ -21,7 +21,7 @@
 /* 2. 底部信息区：保持白色背景，确保在蒙版下方 */
 .card-bottom {
   padding: 20px 15px;
-  background: #fff;
+  background: #f6f5f5;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -30,16 +30,20 @@
 }
 
 .brand-icon-wrapper {
-  height: 30px;
+  width: 100%;             /* 占满宽度 */
+  height: 66px;            /* 从 30px 提升到 45px，给 Logo 更多空间 */
   display: flex;
-  align-items: center;
+  justify-content: center; /* 水平居中核心 */
+  align-items: center;     /* 垂直居中 */
+  margin-bottom: 5px;      /* 与下方标题拉开一点点间距 */
 }
 
 .small-brand-logo {
-  height: 100%;
-  width: auto;
-  object-fit: contain;
-  filter: brightness(0);
+  height: 85%;             /* 占据容器 85% 的高度，确保视觉张力 */
+  width: auto;             /* 宽度自适应比例 */
+  object-fit: contain;     /* 确保不被拉伸变形 */
+  filter: brightness(0);   /* 保持纯黑高级感 */
+  display: block;
 }
 
 .info-box {
@@ -48,7 +52,7 @@
 }
 
 .info-box h3 {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
   color: #000;
   margin: 0 0 4px 0;
@@ -72,67 +76,165 @@
   cursor: pointer;
 }
 
-/* 3. 蒙版区域：精准匹配图片大小 */
+/* ==========================================================================
+   VÉRAN 总裁版 - 尺码/数量选择器 (Montserrat 全覆盖版)
+   ========================================================================== */
+
+/* 蒙版主体 */
 .size-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  /* ✅ 核心修正：使用与图片一致的宽高比，确保大小完全重合 */
-  aspect-ratio: 3 / 4; 
-  
-  background: rgba(255, 255, 255, 0.95);
+  aspect-ratio: 3 / 4; /* 与图片 1:1 重合 */
+  background: rgba(209, 209, 209, 0.836);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 10;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
-.size-options {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  width: 80%;
-}
-
-.size-btn {
-  padding: 8px 0;
-  border: 1px solid #000;
-  background: none;
-  font-size: 12px;
-  cursor: pointer;
-}
-
+/* 1. 数量区域：左右布局 */
 .quantity-section {
+  width: 90%;
+  display: flex;
+  /* ✅ 核心修改：改为 center，让内部所有元素向中心靠拢 */
+  justify-content: center; 
+  align-items: center;
+  /* ✅ 增加间距：让左侧文本和右侧方框之间有呼吸感 */
+  gap: 20px; 
+  margin-bottom: 25px;
+}
+
+.qty-label {
+  /* 确保文本不折行 */
+  white-space: nowrap; 
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+/* 步进器：黑框设计 */
+.stepper-box {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-top: 15px;
+  height: 38px;
+  background: #fff;
 }
 
 .step-btn {
-  background: none;
+  width: 38px;
+  height: 100%;
+  background: #fff;
   border: none;
-  font-size: 18px;
   cursor: pointer;
+  font-size: 18px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
+.step-btn:hover { background: #000; color: #fff; }
+
+.qty-value {
+  width: 45px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  
+  
+}
+
+/* 2. 尺码区域：强制一行排开 */
+.select-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #888;
+}
+
+.size-options {
+  width: 90%;
+  display: flex; /* 强制横向排列 */
+  gap: 8px;      /* 按钮间距 */
+  justify-content: space-between;
+}
+
+.size-btn {
+  flex: 1;       /* 平分宽度 */
+  padding: 10px 0;
+  background: #fff;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.size-btn:hover { background: #000; color: #fff; }
+
+/* 关闭按钮 */
 .close-overlay-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 20px;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
   cursor: pointer;
+  z-index: 11;
+  line-height: 1;
 }
-/* ====== 移动端标准商品流 (一行两列) ====== */
+
+/* ====== 移动端适配 (精准缩减按钮尺寸) ====== */
 @media screen and (max-width: 768px) {
-  /* 请把 .product-grid 换成你实际包裹这些商品的 div 类名 */
+  /* 1. 全局网格保持两列 */
   .product-grid {
     display: grid !important;
-    /* 1fr 1fr 表示两列等宽 */
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important; /* 间距 */
+    gap: 10px !important;
     padding: 10px !important;
+  }
+
+  /* 2. 缩减蒙版内容器宽度：从 90% 降到 85% 或更小，留出呼吸空间 */
+  .quantity-section, .size-options {
+    width: 85% !important;
+  }
+
+  /* 3. 步进器高度下调：让它看起来更清爽 */
+  .stepper-box {
+    height: 32px !important; /* 原 38px */
+  }
+
+  .step-btn {
+    width: 32px !important; /* 保持正方形 */
+    font-size: 16px !important;
+  }
+
+  .qty-value {
+    width: 35px !important; /* 原 45px */
+    font-size: 12px !important;
+  }
+
+  /* 4. 尺码按钮高度下调 */
+  .size-btn {
+    padding: 6px 0 !important; /* 原 10px */
+    font-size: 11px !important;
+  }
+
+  /* 5. 调整文字间距 */
+  .qty-label, .select-label {
+    font-size: 10px !important;
+    margin-bottom: 8px !important;
+  }
+  .brand-icon-wrapper {
+    height: 42px;          /* 移动端稍微收敛一点，避免头重脚轻 */
   }
 }

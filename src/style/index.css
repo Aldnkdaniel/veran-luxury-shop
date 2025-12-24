@@ -20,3 +20,22 @@
     box-sizing: border-box !important;
   }
 }
+/* 1. 扩大覆盖范围：确保所有文本标签都强制继承 */
+html, body, button, input, textarea, span, a, p, div {
+  font-family: 'Montserrat', sans-serif !important; /* 使用 !important 确保穿透组件内部样式 */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 2. 针对标题的精致化处理 */
+h1, h2, h3, .login-header h2 {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+
+/* 3. 特别优化页脚和按钮的质感 */
+footer a, footer span, .login-btn {
+  font-family: 'Montserrat', sans-serif !important;
+  letter-spacing: 1px; /* 增加字间距，更有奢侈品页脚的呼吸感 */
+}
