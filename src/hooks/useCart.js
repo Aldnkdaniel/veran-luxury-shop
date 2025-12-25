@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
+/**
+ * Custom hook to manage global cart state with local storage persistence.
+ * Handles both guest and authenticated user sessions automatically.
+ * @returns {Object} Cart context value including items and dispatchers
+ */
+
+
 export const useCart = () => {
   const location = useLocation();
   const token = localStorage.getItem('userToken');
