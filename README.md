@@ -1,49 +1,55 @@
-# VÉRAN - React E-commerce Client
+# VÉRAN - Luxury Fashion E-commerce
 
-![React](https://img.shields.io/badge/React-18.2-blue)
-![Vite](https://img.shields.io/badge/Vite-5.0-purple)
-![Status](https://img.shields.io/badge/Status-MVP_Ready-success)
+[![React](https://img.shields.io/badge/React-18.2-61DAFB?logo=react&logoColor=white)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Deployment](https://img.shields.io/badge/Live-Vercel-000000?logo=vercel&logoColor=white)](https://veran-luxury-shop.vercel.app)
+[![Domain](https://img.shields.io/badge/Domain-Aliyun-orange?logo=alibabacloud&logoColor=white)](https://veran-shop.top)
 
-基于 React 18 + Vite 构建的现代化电商前端应用。本项目专注于**前端工程化实践**，在无后端环境下实现了完整的用户会话隔离、网络层封装及组件化架构。
+> **沉浸式视觉复刻项目**：深度拆解并像素级还原 Louis Vuitton 官网视觉语言。本项目不仅是 UI 的重塑，更是一次基于 React 18 的高性能电商前端工程化实践。
 
-🔗 **在线演示：[https://veran-luxury-shop.vercel.app](https://veran-luxury-shop.vercel.app)**
+🔗 **在线演示 (Live Demo)**: [https://veran-shop.top](https://veran-shop.top) (阿里云自定义域名)  
+🔗 **备用预览**: [https://veran-luxury-shop.vercel.app](https://veran-luxury-shop.vercel.app)
 
-## ⚡️ 核心架构 (Architecture)
+---
 
-### 1. 网络请求层封装 (Network Layer)
-基于 Axios 进行二次封装，统一管理 HTTP 请求生命周期：
-- **拦截器机制**：请求头自动注入 Token，响应层统一处理 `401 Unauthorized` 及网络异常。
-- **配置化**：预设 5000ms 超时熔断，支持 BaseURL 动态切换。
-- *File: `src/api/request.js`*
+## 💎 项目亮点 (Core Highlights)
 
-### 2. 购物车状态管理 (State Management)
-自定义 Hook (`useCart`) 实现业务逻辑与视图分离：
-- **数据隔离**：基于 `userToken` 动态切换 LocalStorage Key，实现 Guest/User 购物车数据物理隔离。
-- **持久化同步**：状态变更自动同步至本地存储，保证刷新不丢失。
-- *File: `src/hooks/useCart.js`*
+### 1. 像素级视觉复刻 (Pixel-Perfect UI)
+* **杂志级排版**：运用 **Flex/Grid 复合布局** 还原奢侈品牌特有的留白艺术与非对称美学。
+* **沉浸式交互**：实现了流畅的商品横向滚动展示及符合品牌调性的动态加载效果。
 
-### 3. 性能优化 (Performance)
-- **计算属性缓存**：使用 `useMemo` 处理购物车金额与数量统计，避免频繁渲染时的无效计算。
-- **组件原子化**：将 UI 拆分为 `ProductCard`, `SizeOverlay` 等独立组件，降低耦合。
-- *File: `src/components/CartDrawer/index.jsx`*
+### 2. 原子化状态管理 (State Management)
+* **核心方案**：采用 **Context API + Custom Hooks (useCart)** 模式，实现购物车逻辑与 UI 组件的深度解耦。
+* **数据持久化**：支持用户会话级别的本地存储同步，确保在无后端环境下依然拥有完整的购物闭环体验。
 
-## 🛠 技术栈 (Tech Stack)
+### 3. 企业级网络层封装 (Network Layer)
+* **Axios 二次封装**：统一配置请求/响应拦截器，实现全局 **Loading 状态机** 切换与网络异常捕获。
+* **稳定性保障**：通过拦截器层级进行数据预处理，极大提升了前端对接口返回数据的鲁棒性。
 
-- **核心框架**: React 18, React Router v6
-- **构建工具**: Vite
-- **状态/副作用**: React Hooks (useState, useEffect, useMemo)
-- **网络请求**: Axios
-- **样式方案**: CSS Modules (Scoped)
+### 4. 商业级自动化部署 (Engineering)
+* **CI/CD 流水线**：集成 **Vercel + GitHub Actions**，实现代码推送即发布的自动化生产流。
+* **生产优化**：利用 Vite 进行资源压缩与代码拆分，结合图片懒加载技术，显著优化首屏加载耗时。
 
-## 📂 目录结构 (Structure)
+---
+
+## 🛠️ 技术栈 (Tech Stack)
+
+* **框架**: React 18 (Hooks 模式)
+* **构建**: Vite 5.0
+* **路由**: React Router v6
+* **通信**: Axios (Interceptors)
+* **样式**: CSS Modules (Scoped)
+* **基础**: JavaScript (ES6+), HTML5, CSS3 (高级布局特性)
+
+---
+
+## 📂 项目结构 (Project Structure)
 
 ```text
 src/
-├── api/            # API 接口与 Axios 封装
-├── assets/         # 静态资源
-├── components/     # 通用组件 (Header, CartDrawer, etc.)
-├── constants/      # 静态配置数据 (Products, Brands)
-├── hooks/          # 自定义 Hooks (useCart, useScroll)
-├── layout/         # 全局布局容器
-├── views/          # 页面级入口
-└── main.jsx        # 应用入口
+├── api/            # 封装 Axios 实例及网络拦截逻辑
+├── components/     # UI 原子组件 (ProductCard, SizeOverlay 等)
+├── hooks/          # 核心业务逻辑 Hooks (useCart 购物车逻辑)
+├── views/          # 视图层 (Home 首页, Category 分类页)
+├── constants/      # 静态品牌数据与 Mock 配置文件
+└── assets/         # 品牌视觉资源与全局样式
