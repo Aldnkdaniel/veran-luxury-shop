@@ -15,7 +15,7 @@
   align-items: center;
   font-family: 'Inter', sans-serif;
 }
-
+/* Primary color palette optimized for accessibility */
 
 .login-card {
   background: rgba(255, 255, 255, 0.723);
