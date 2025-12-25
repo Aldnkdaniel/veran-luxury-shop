@@ -7,7 +7,7 @@
 
 > **沉浸式视觉复刻项目**：深度拆解并像素级还原 Louis Vuitton 官网视觉语言。本项目不仅是 UI 的重塑，更是一次基于 React 18 的高性能电商前端工程化实践。
 
-🔗 **在线演示 (Live Demo)**: [https://veran-shop.top](https://veran-shop.top) (阿里云自定义域名)  
+🔗 **在线演示 (Live DPreview)**: [https://veran-shop.top](https://veran-shop.top) (阿里云自定义域名)  
 🔗 **备用预览**: [https://veran-luxury-shop.vercel.app](https://veran-luxury-shop.vercel.app)
 
 ---
