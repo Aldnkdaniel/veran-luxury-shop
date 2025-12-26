@@ -65,6 +65,7 @@ const CartDrawer = ({ isOpen, onClose, cartItems, onRemoveItem }) => {
                   )}
                   <p className="item-price">￥{item.price.toLocaleString()}</p>
                   <button className="remove-btn" onClick={() => onRemoveItem(index)}>REMOVE</button>
+                  {/* 在map的时候给每个按钮都绑定了自己的索引号 */}
                 </div>
               </div>
             ))

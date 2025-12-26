@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-import { useCart } from './hooks/useCart';
+import { CartProvider, useCartContext } from './context/CartContext'
 import MainLayout from './layout/MainLayout';
 
 import Home from './views/Home';
@@ -9,7 +9,14 @@ import Login from './views/Login';
 
 function AppContent() {
   const location = useLocation();
-  const { cartItems, addToCart, removeById, removeFromCart, isLoggedIn } = useCart();
+  const {
+    cartItems,
+    addToCart,
+    removeById,
+    removeFromCart,
+    isLoggedIn
+  } = useCartContext()
+
 
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -58,7 +65,13 @@ function AppContent() {
 }
 
 function App() {
-  return <Router><AppContent /></Router>;
+  return (
+    <Router>
+      <CartProvider>
+        <AppContent />
+      </CartProvider>
+    </Router>
+  ) 
 }
 
 export default App;

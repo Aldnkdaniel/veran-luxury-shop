@@ -23,11 +23,4 @@ export const loginApi = (data) => {
     }, 1000);
   });
 
-  /* 以后后端好了，直接取消下面这段注释，删掉上面的 Promise 即可
-  return request({
-    url: '/api/auth/login',
-    method: 'post',
-    data
-  });
-  */
 };
