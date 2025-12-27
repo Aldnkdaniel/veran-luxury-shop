@@ -57,14 +57,14 @@
 }
 
 .menu-close:hover {
-  transform: rotate(90deg);
+  transform: rotate(360deg);
 }
 
 .menu-close-text {
   font-size: 14px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #666;
+  color: #8c8888;
 }
 
 
@@ -115,23 +115,21 @@
   color: #980101;
 }
 
-/* .menu-link-large::after {
+.menu-link-large::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -5px;
+  bottom: -2px;
   width: 0;
-  height: 2px;
+  height: 1.5px;
   background: #000;
-  transition: width 0.3s;
+  transition: width 0.8s;
 }
 .menu-link-large:hover::after {
   width: 100%;
 } 
-*/
-/* =========================================
-   移动端菜单深度定制 (奢侈品风格)
-   ========================================= */
+
+
 @media screen and (max-width: 768px) {
 
 

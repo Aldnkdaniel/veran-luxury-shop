@@ -104,6 +104,8 @@ const Login = () => {
                 label="Email Address"
                 // 这是属于下面那个输入框的
                 type="email"
+                id="user-login-email"
+                name="email"
                 placeholder="admin@company.com"
                 value={email}
                 error={errors.email}
@@ -119,6 +121,8 @@ const Login = () => {
                 label="Password"
                 type="password"
                 placeholder="••••••••"
+                id="login-password"
+                name="password"
                 value={password}
                 error={errors.password}
                 onChange={(e) => {
