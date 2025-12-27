@@ -8,7 +8,7 @@ const HeroSection = () => {
         src={HeroBg}
         className='hero-image'
         alt='Collection Hero'
-        fetchPriority="high"
+        fetchpriority="high"
       />
     </section>
   )
