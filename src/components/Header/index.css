@@ -1,6 +1,4 @@
-/* ==========================================================================
-   工业级 Header 样式 - 总裁专属版 (解决重影、变粗、变色失效)
-   ========================================================================== */
+
 
 .home-header {
   position: fixed;
@@ -9,15 +7,11 @@
   width: 100%;
   height: 88px;
   z-index: 1000;
-
   display: flex;
   align-items: center;
   padding: 0 40px;
-
   background: transparent;
   color: #ffffff;
-
-
   transition: background 0.3s ease, color 0.3s ease, opacity 0.2s ease;
 }
 
@@ -35,37 +29,21 @@
   color: #000000;
 }
 
-/* --------------------------------------------------------------------------
-   Logo 核心：极致锐度 & 变色控制
-   -------------------------------------------------------------------------- */
 
 .logo-box img {
   display: block;
   width: 226px;
   height: auto;
-
-
   filter: brightness(0) invert(1) contrast(10);
-
-
   image-rendering: -webkit-optimize-contrast;
-
-
   transform: translateZ(0);
-
   transition: filter 0.3s ease;
 }
 
-
 .home-header.scrolled .logo-box img,
 .home-header:hover .logo-box img {
-
   filter: brightness(0) invert(0) contrast(10) !important;
 }
-
-/* --------------------------------------------------------------------------
-   布局与图标
-   -------------------------------------------------------------------------- */
 
 .header-left,
 .header-right {
@@ -148,9 +126,6 @@
   z-index: 10;
 }
 
-/* --------------------------------------------------------------------------
-   用户态专属：在线点与悬浮提示
-   -------------------------------------------------------------------------- */
 
 .user-wrapper {
   position: relative;

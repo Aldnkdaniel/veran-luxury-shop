@@ -9,6 +9,7 @@ const CartDrawer = ({ isOpen, onClose, cartItems, onRemoveItem }) => {
   const cartDetails = useMemo(() => {
 
     if (!cartItems) return [];
+    //没有购物车数据 就别往下跑了 给我一个空的数组
 
 
     return cartItems.map((cartItem, index) => {
@@ -22,7 +23,6 @@ const CartDrawer = ({ isOpen, onClose, cartItems, onRemoveItem }) => {
       return {
         ...product,
         size: cartItem.size,
-
         quantity: cartItem.quantity || 1,
         uniqueKey: `${cartItem.id}-${cartItem.size}-${index}`
       };
@@ -44,9 +44,11 @@ const CartDrawer = ({ isOpen, onClose, cartItems, onRemoveItem }) => {
 
       { }
       <div className={`cart-drawer ${isOpen ? 'open' : ''}`}>
+        {/* 不同的css */}
         <div className="drawer-header">
           <h2>YOUR BAG ({cartItems ? cartItems.length : 0})</h2>
           <button className="close-btn" onClick={onClose}>&times;</button>
+                                                       {/* 字符实体 */}
         </div>
 
         <div className="drawer-items">

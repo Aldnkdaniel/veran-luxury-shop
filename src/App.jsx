@@ -21,6 +21,8 @@ function AppContent() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
+
+  // 身份拦截 看等没登陆 
   const handleAddToCartAction = (item) => {
     if (!isLoggedIn) {
       setIsLoginModalOpen(true);
@@ -31,6 +33,7 @@ function AppContent() {
   };
 
   return (
+    //是不是在登录页是的话 把头尾去掉
     <MainLayout
       layoutProps={{ isLoginPage: location.pathname === '/login' }}
       authProps={{ isLoginModalOpen, setIsLoginModalOpen }}

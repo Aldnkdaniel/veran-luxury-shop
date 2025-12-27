@@ -13,6 +13,7 @@ const LoginModal = ({ isOpen, onClose }) => {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="login-modal-card" onClick={(e) => e.stopPropagation()}>
+        {/* 斩断冒泡 */}
         <button className="modal-close-btn" onClick={onClose}>✕</button>
 
         <div className="modal-body">

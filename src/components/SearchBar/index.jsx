@@ -5,6 +5,7 @@ import './index.css'
 
 const Searchbar = () => {
   const [searchOpen, setSearchOpen] = useState(false)
+  //默认是收起来的
   const [searchQuery, setSearchQuery] = useState("")
   const navigate = useNavigate()
 

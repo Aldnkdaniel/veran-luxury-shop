@@ -20,6 +20,7 @@ const ProductList = ({ cartItems = [], onAddToCart, onRemoveFromCart }) => {
 
     return PRODUCTS.filter(item => {
       if (q) return item.name.toLowerCase().includes(q) || item.brand.toLowerCase().includes(q);
+      //includes 在一堆里找一个比如说在apple里搜a也可以找到
       if (brandName && brandName !== 'search') return item.brand.toLowerCase() === brandName.toLowerCase();
       if (type) return item.category === type;
       return true;
