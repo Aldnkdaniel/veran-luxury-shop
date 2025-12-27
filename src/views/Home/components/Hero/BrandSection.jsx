@@ -12,7 +12,7 @@ const BrandSection = ({ brand, onBrandClick }) => (
         src={brand.image}
         className="brand-main-image"
         alt={brand.name}
-        loading="lazy"
+        loading={brand.loading || "lazy"}
       />
       <button
         className="brand-action-btn"

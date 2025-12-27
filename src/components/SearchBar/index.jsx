@@ -28,6 +28,9 @@ const Searchbar = () => {
     <div className={`search-container ${searchOpen ? 'active' : ''}`}>
       <input
         type='text'
+        id="header-search-input"
+        name="search"
+        autoComplete="off"
         className='search-input'
         placeholder='SEARCH'
         value={searchQuery}

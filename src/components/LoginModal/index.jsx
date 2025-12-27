@@ -2,7 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './index.css';
-import Logo from '../../../public/web-logo.webp'
+import Logo from '../../assets/web-logo.webp'
 
 const LoginModal = ({ isOpen, onClose }) => {
   const navigate = useNavigate();

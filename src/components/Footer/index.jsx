@@ -57,7 +57,7 @@ const Footer = () => {
             
             <div className="footer-subscription">
               <div className="sub-input-wrap">
-                <input type="email" placeholder="订阅邮件" className="email-input" />
+                <input type="email" id="footer-subscribe-email" autoComplete="email" placeholder="订阅邮件" name="email" className="email-input" />
                 <button type="button" className="submit-btn">OK</button>
               </div>
             </div>
