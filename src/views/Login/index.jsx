@@ -33,7 +33,7 @@ const Login = () => {
     //（？=.*\d） 数字0-9
     //（？=.*[@$!%?&]） 特殊符号
     //[A-Za-z\d@$%!?&{8,16}] 最少8位最多16位
-
+    
     setErrors(newErrors);
     return isValid;
     //把最终的结果告诉调用者
@@ -106,6 +106,7 @@ const Login = () => {
                 type="email"
                 id="user-login-email"
                 name="email"
+                autoComplete="username"
                 placeholder="admin@company.com"
                 value={email}
                 error={errors.email}
@@ -123,6 +124,7 @@ const Login = () => {
                 placeholder="••••••••"
                 id="login-password"
                 name="password"
+                autoComplete="current-password"
                 value={password}
                 error={errors.password}
                 onChange={(e) => {

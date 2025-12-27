@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 
-const FormField = ({ label, type, placeholder, value, onChange, error, name, id }) => {
+const FormField = ({ label, type, placeholder, value, onChange, error, name, id, autoComplete }) => {
   return (
     <div className={`form-field-container ${error ? 'has-error' : ''}`}>
       {label && <label className="field-label" htmlFor={id}>{label}</label>}
@@ -11,6 +11,7 @@ const FormField = ({ label, type, placeholder, value, onChange, error, name, id 
           id={id} 
           name={name}
           type={type}
+          autoComplete={autoComplete}
           className="field-input"
           placeholder={placeholder}
           value={value}
